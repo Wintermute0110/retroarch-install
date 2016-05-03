@@ -38,16 +38,24 @@ mkdir -p ${PATH_RETROARCH_STUFF}/autoconfig/ # retroarch-joypad-autoconfig (opti
 mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/ # libretro-database (option content_database_path)
 
 # --- Create other directories that will be needed later ---
-mkdir -p ${PATH_RETROARCH_STUFF}/playlists/     # Option playlist_directory, default playlists
-mkdir -p ${PATH_RETROARCH_STUFF}/savefiles/     # Option savefile_directory, default savefiles
-mkdir -p ${PATH_RETROARCH_STUFF}/savestates/    # Option savestate_directory, default savestates
-mkdir -p ${PATH_RETROARCH_STUFF}/system/        # Option system_directory, default system
-mkdir -p ${PATH_RETROARCH_STUFF}/screenshots/   # Option screenshot_directory, default screenshots
-mkdir -p ${PATH_RETROARCH_STUFF}/boxarts/       # Option boxarts_directory, default boxarts
-mkdir -p ${PATH_RETROARCH_STUFF}/remappings/    # Option input_remapping_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/video_filters/ # Option video_filter_dir
-mkdir -p ${PATH_RETROARCH_STUFF}/audio_filters/ # Option audio_filter_dir
-mkdir -p ${PATH_RETROARCH_STUFF}/wallpapers/    # Option dynamic_wallpapers_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/playlists/      # Option playlist_directory, default playlists
+mkdir -p ${PATH_RETROARCH_STUFF}/savefiles/      # Option savefile_directory, default savefiles
+mkdir -p ${PATH_RETROARCH_STUFF}/savestates/     # Option savestate_directory, default savestates
+mkdir -p ${PATH_RETROARCH_STUFF}/system/         # Option system_directory, default system
+mkdir -p ${PATH_RETROARCH_STUFF}/screenshots/    # Option screenshot_directory, default screenshots
+mkdir -p ${PATH_RETROARCH_STUFF}/boxarts/        # Option boxarts_directory, default boxarts
+mkdir -p ${PATH_RETROARCH_STUFF}/remappings/     # Option input_remapping_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/video_filters/  # Option video_filter_dir
+mkdir -p ${PATH_RETROARCH_STUFF}/audio_filters/  # Option audio_filter_dir
+mkdir -p ${PATH_RETROARCH_STUFF}/wallpapers/     # Option dynamic_wallpapers_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/configurations/ # Option rgui_config_directory
+
+# Not in default retroarch.cfg (I should send a pull request to solve this)
+mkdir -p ${PATH_RETROARCH_STUFF}/downloads/        # Option core_assets_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/recording_output/ # Option recording_output_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/recording_config/ # Option recording_config_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/cache/            # Option cache_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/resampler/        # Option resampler_directory
 
 # --- Copy Retroarch stuff (assets, databases, etc.) ---
 echo "Installing shaders_cg ..."
