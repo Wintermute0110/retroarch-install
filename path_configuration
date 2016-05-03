@@ -1,0 +1,9 @@
+# RetroArch/Libretro paths
+#
+
+# No whitespaces in directory names.
+# Add a trailing slash / to directory names.
+PATH_LIBRETRO=~/bin/bin-libretro/
+PATH_RETROARCH=~/bin/bin-retroarch/
+PATH_RETROARCH_STUFF=~/.retroarch/
+RETROARCH_CFG=~/.config/retroarch/retroarch.cfg

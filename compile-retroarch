@@ -1,0 +1,20 @@
+#!/bin/bash
+# List of tags ("git tag" to get a full list):
+# v1.2
+# v1.2.1  b3a66c9
+# v1.2.2  589b92c
+# v1.3.1
+#
+cd libretro-super
+cd retroarch
+
+# --- Switch to master HEAD ---
+# git checkout master
+
+# --- Or switch to a specific release tag ---
+git checkout tags/v1.3.1
+
+# --- Build ---
+cd ..
+./retroarch-build.sh
+cd ..
