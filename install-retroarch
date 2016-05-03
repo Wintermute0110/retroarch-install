@@ -22,8 +22,8 @@ rm -f ${PATH_RETROARCH_STUFF}/info/*.info
 cp ./libretro-super/dist/info/*.info ${PATH_RETROARCH_STUFF}/info/
 
 # --- Install Retroarch ---
-# * Based on Lakka retroarch installation script
-# * Have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
+# Based on Lakka retroarch installation script
+# Have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
 echo "Installing Retroarch binary..."
 mkdir -p ${PATH_RETROARCH_BIN}
 cp ./libretro-super/retroarch/retroarch ${PATH_RETROARCH_BIN}
@@ -31,11 +31,11 @@ cp ./libretro-super/retroarch/retroarch ${PATH_RETROARCH_BIN}
 # --- Create RetroArch paths ---
 # See https://github.com/libretro/RetroArch/blob/master/fetch-submodules.sh
 echo "Creating RetroArch stuff paths..."
-mkdir -p ${PATH_RETROARCH_STUFF}/shaders_cg/     # common-shaders (option video_shader_dir)
-mkdir -p ${PATH_RETROARCH_STUFF}/overlays/       # common-overlays (option overlay_directory)
-mkdir -p ${PATH_RETROARCH_STUFF}/assets/         # retroarch-assets (option assets_directory)
-mkdir -p ${PATH_RETROARCH_STUFF}/joy_autoconfig/ # retroarch-joypad-autoconfig (option joypad_autoconfig_dir)
-mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/     # libretro-database (option content_database_path)
+mkdir -p ${PATH_RETROARCH_STUFF}/shaders_cg/ # common-shaders (option video_shader_dir)
+mkdir -p ${PATH_RETROARCH_STUFF}/overlays/   # common-overlays (option overlay_directory)
+mkdir -p ${PATH_RETROARCH_STUFF}/assets/     # retroarch-assets (option assets_directory)
+mkdir -p ${PATH_RETROARCH_STUFF}/autoconfig/ # retroarch-joypad-autoconfig (option joypad_autoconfig_dir)
+mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/ # libretro-database (option content_database_path)
 
 # --- Create other directories that will be needed later ---
 mkdir -p ${PATH_RETROARCH_STUFF}/playlists/     # Option playlist_directory, default playlists
@@ -63,7 +63,7 @@ echo "Installing joystick autoconfig ..."
 cp -r ./libretro-super/retroarch/media/autoconfig/* ${PATH_RETROARCH_STUFF}/autoconfig/
 
 echo "Installing libretrodb ..."
-cp -r ./libretro-super/retroarch/media/libretrodb/* ${INSTALL_PATH_RETROARCH_STUFF}/libretrodb
+cp -r ./libretro-super/retroarch/media/libretrodb/* ${PATH_RETROARCH_STUFF}/libretrodb
 
 # --- Installing core specific stuff ---
 echo "Installing core-specific stuff..."
