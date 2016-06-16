@@ -6,4 +6,5 @@
 PATH_LIBRETRO=~/bin/bin-libretro/
 PATH_RETROARCH_BIN=~/bin/bin-retroarch/
 PATH_RETROARCH_STUFF=~/.retroarch/
-RETROARCH_CFG=~/.config/retroarch/retroarch.cfg
+RETROARCH_CFG_FILE=~/.config/retroarch/retroarch.cfg
+RETROARCH_CFG_DIR=~/.config/retroarch/

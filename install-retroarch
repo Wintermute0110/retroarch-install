@@ -5,19 +5,55 @@
 source path_configuration
 
 # --- Install LibRetro cores and info files ---
-echo "Creating RetroArch stuff path..."
+echo "Creating RetroArch stuff directory..."
 mkdir -p ${PATH_RETROARCH_STUFF}
 
+echo "Creating RetroArch configuration directory..."
+mkdir -p ${RETROARCH_CFG_DIR}
+
+# --- Create RetroArch paths ---
+# See https://github.com/libretro/RetroArch/blob/master/fetch-submodules.sh
+# Use same order as create-retroarch-default-config.py
+echo "Creating RetroArch stuff directories..."
+mkdir -p ${PATH_RETROARCH_STUFF}/system/             # Option system_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/core_assets/        # Option core_assets_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/assets/             # Option assets_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/wallpapers/         # Option dynamic_wallpapers_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/boxarts/            # Option boxarts_directory
+                                                     # Option rgui_browser_directory, ROMs path
+mkdir -p ${PATH_RETROARCH_STUFF}/configurations/     # Option rgui_config_directory
+mkdir -p ${PATH_LIBRETRO}                            # Option libretro_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/info/               # Option libretro_info_path
+mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/rdb/     # Option content_database_path
+mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/cursors/ # Option cursor_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/cht/     # Option cheat_database_path
+mkdir -p ${PATH_RETROARCH_STUFF}/video_filters/      # Option video_filter_dir
+mkdir -p ${PATH_RETROARCH_STUFF}/audio_filters/      # Option audio_filter_dir
+mkdir -p ${PATH_RETROARCH_STUFF}/shaders_cg/         # Option video_shader_dir
+mkdir -p ${PATH_RETROARCH_STUFF}/overlays/           # Option overlay_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/osk_overlays/       # Option osk_overlay_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/screenshots/        # Option screenshot_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/joypad_autoconfig/  # Option joypad_autoconfig_dir
+mkdir -p ${PATH_RETROARCH_STUFF}/input_remappings/   # Option input_remapping_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/playlists/          # Option playlist_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/savefiles/          # Option savefile_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/savestates/         # Option savestate_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/recording_output/   # Option recording_output_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/recording_config/   # Option recording_config_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/cache/              # Option cache_directory
+
+# --- These directories are not in 'Settings' -- 'Directory' --- in RGUI ---
+mkdir -p ${PATH_RETROARCH_STUFF}/resampler/          # Option resampler_directory
+
+# --- Copy cores and core INFO files ---
 # Clean the cores before copying.
 echo "Cleaning old LibRetro cores..."
-mkdir -p ${PATH_LIBRETRO}
 rm -f ${PATH_LIBRETRO}/*.so
 
 echo "Installing LibRetro cores..."
 cp ./libretro-super/dist/unix/*.so ${PATH_LIBRETRO}
 
 echo "Installing LibRetro core info files..."
-mkdir -p ${PATH_RETROARCH_STUFF}/info/
 rm -f ${PATH_RETROARCH_STUFF}/info/*.info
 cp ./libretro-super/dist/info/*.info ${PATH_RETROARCH_STUFF}/info/
 
@@ -27,35 +63,6 @@ cp ./libretro-super/dist/info/*.info ${PATH_RETROARCH_STUFF}/info/
 echo "Installing Retroarch binary..."
 mkdir -p ${PATH_RETROARCH_BIN}
 cp ./libretro-super/retroarch/retroarch ${PATH_RETROARCH_BIN}
-
-# --- Create RetroArch paths ---
-# See https://github.com/libretro/RetroArch/blob/master/fetch-submodules.sh
-echo "Creating RetroArch stuff paths..."
-mkdir -p ${PATH_RETROARCH_STUFF}/shaders_cg/ # common-shaders (option video_shader_dir)
-mkdir -p ${PATH_RETROARCH_STUFF}/overlays/   # common-overlays (option overlay_directory)
-mkdir -p ${PATH_RETROARCH_STUFF}/assets/     # retroarch-assets (option assets_directory)
-mkdir -p ${PATH_RETROARCH_STUFF}/autoconfig/ # retroarch-joypad-autoconfig (option joypad_autoconfig_dir)
-mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/ # libretro-database (option content_database_path)
-
-# --- Create other directories that will be needed later ---
-mkdir -p ${PATH_RETROARCH_STUFF}/playlists/      # Option playlist_directory, default playlists
-mkdir -p ${PATH_RETROARCH_STUFF}/savefiles/      # Option savefile_directory, default savefiles
-mkdir -p ${PATH_RETROARCH_STUFF}/savestates/     # Option savestate_directory, default savestates
-mkdir -p ${PATH_RETROARCH_STUFF}/system/         # Option system_directory, default system
-mkdir -p ${PATH_RETROARCH_STUFF}/screenshots/    # Option screenshot_directory, default screenshots
-mkdir -p ${PATH_RETROARCH_STUFF}/boxarts/        # Option boxarts_directory, default boxarts
-mkdir -p ${PATH_RETROARCH_STUFF}/remappings/     # Option input_remapping_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/video_filters/  # Option video_filter_dir
-mkdir -p ${PATH_RETROARCH_STUFF}/audio_filters/  # Option audio_filter_dir
-mkdir -p ${PATH_RETROARCH_STUFF}/wallpapers/     # Option dynamic_wallpapers_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/configurations/ # Option rgui_config_directory
-
-# Not in default retroarch.cfg (I should send a pull request to solve this)
-mkdir -p ${PATH_RETROARCH_STUFF}/downloads/        # Option core_assets_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/recording_output/ # Option recording_output_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/recording_config/ # Option recording_config_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/cache/            # Option cache_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/resampler/        # Option resampler_directory
 
 # --- Copy Retroarch stuff (assets, databases, etc.) ---
 echo "Installing shaders_cg ..."
@@ -68,15 +75,19 @@ echo "Installing assets ..."
 cp -r ./libretro-super/retroarch/media/assets/* ${PATH_RETROARCH_STUFF}/assets/
 
 echo "Installing joystick autoconfig ..."
-cp -r ./libretro-super/retroarch/media/autoconfig/* ${PATH_RETROARCH_STUFF}/autoconfig/
+cp -r ./libretro-super/retroarch/media/autoconfig/* ${PATH_RETROARCH_STUFF}/joypad_autoconfig/
 
 echo "Installing libretrodb ..."
 cp -r ./libretro-super/retroarch/media/libretrodb/* ${PATH_RETROARCH_STUFF}/libretrodb
 
 # --- Installing core specific stuff ---
-echo "Installing core-specific stuff..."
-# Copy PPSSPP assets if PPSSPP core compiled
-# See http://wiki.libretro.com/index.php?title=PPSSPP
+echo "Installing PPSSPP assets..."
+# >> See http://wiki.libretro.com/index.php?title=PPSSPP
+if [ -d ./libretro-super/libretro-ppsspp/assets/ ]; then
+    mkdir -p ${PATH_RETROARCH_STUFF}/system/PPSSPP/
+    cp -r ./libretro-super/libretro-ppsspp/assets/* ${PATH_RETROARCH_STUFF}/system/PPSSPP/
+fi
 
+# --- So long and thanks for all the fish ---
 echo "Done"
 exit 0
