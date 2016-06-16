@@ -124,5 +124,5 @@ edit_option(conf_dest_path, 'input_exit_emulator_btn', '10')
 edit_option(conf_dest_path, 'input_menu_toggle_btn', '12')
 
 # --- Copy newly edite retroarch.cfg into retroarch_initial.cfg as a backup ---  
-print("Copying Retroarch default config file...")
+print("Creating retroarch.cfg initial backup...")
 shutil.copyfile(conf_dest_path, conf_dest_initial_path)
