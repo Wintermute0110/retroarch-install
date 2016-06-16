@@ -3,8 +3,9 @@
 
 # Configuration  --------------------------------------------------------------
 # >> Configure paths to your system
-conf_source_path    = '/home/kodi/bin/source-retroarch/retroarch.cfg'
-conf_dest_path      = '/home/kodi/.config/retroarch/retroarch.cfg'
+conf_source_path       = '/home/kodi/bin/source-retroarch/retroarch.cfg'
+conf_dest_path         = '/home/kodi/.config/retroarch/retroarch.cfg'
+conf_dest_initial_path = '/home/kodi/.config/retroarch/retroarch_initial.cfg'
 
 # >> Retroarch replaces absolute user home dirs by '~'
 retroarch_stuff_dir = '~/.retroarch'
@@ -53,10 +54,10 @@ def edit_option(filename, option_name, option_value):
 
 # Main  -----------------------------------------------------------------------
 # --- Check if config file already exists (never overwrite it) ---
-# if os.path.isfile(conf_dest_path):
-#   print('Config file "{0}" already exists'.format(conf_dest_path))
-#   print('Aborting')
-#   sys.exit(1)
+if os.path.isfile(conf_dest_path):
+  print('Config file "{0}" already exists'.format(conf_dest_path))
+  print('Aborting')
+  sys.exit(1)
 
 # --- Copy retroarch.cfg ---  
 print("Copying Retroarch default config file...")
@@ -121,3 +122,7 @@ edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 # >> Logitech F710 joystick
 edit_option(conf_dest_path, 'input_exit_emulator_btn', '10')
 edit_option(conf_dest_path, 'input_menu_toggle_btn', '12')
+
+# --- Copy newly edite retroarch.cfg into retroarch_initial.cfg as a backup ---  
+print("Copying Retroarch default config file...")
+shutil.copyfile(conf_dest_path, conf_dest_initial_path)
