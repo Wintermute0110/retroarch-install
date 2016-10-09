@@ -9,8 +9,8 @@ conf_dest_initial_path = '/home/kodi/.config/retroarch/retroarch_initial.cfg'
 
 # >> Retroarch replaces absolute user home dirs by '~'
 retroarch_stuff_dir = '~/.retroarch'
-ROMs_dir            = '~/Games/'
-libretro_dir        = '~/bin/bin-libretro/'
+ROMs_dir            = '~/AEL-ROMs/'
+libretro_dir        = '~/bin/libretro/'
 
 # Import stuff  ---------------------------------------------------------------
 import os
@@ -119,10 +119,10 @@ edit_option(conf_dest_path, 'sort_savefiles_enable', 'true')
 edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 
 # --- Custom options ---
-# >> Logitech F710 joystick
+# >> Logitech F710 joystick Ubuntu Trusty option triggers as buttons
 edit_option(conf_dest_path, 'input_exit_emulator_btn', '10')
 edit_option(conf_dest_path, 'input_menu_toggle_btn', '12')
 
-# --- Copy newly edite retroarch.cfg into retroarch_initial.cfg as a backup ---  
+# --- Copy newly edited retroarch.cfg into retroarch_initial.cfg as a backup ---
 print("Creating retroarch.cfg initial backup...")
 shutil.copyfile(conf_dest_path, conf_dest_initial_path)
