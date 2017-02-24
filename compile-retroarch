@@ -4,6 +4,7 @@
 # v1.2.1  b3a66c9
 # v1.2.2  589b92c
 # v1.3.1
+# v1.4.1
 #
 cd libretro-super
 cd retroarch
@@ -12,7 +13,7 @@ cd retroarch
 # git checkout master
 
 # --- Or switch to a specific release tag ---
-git checkout tags/v1.3.6
+git checkout tags/v1.4.1
 
 # --- Build ---
 cd ..
