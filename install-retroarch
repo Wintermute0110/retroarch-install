@@ -19,7 +19,7 @@ mkdir -p ${PATH_RETROARCH_STUFF}/system/             # Option system_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/core_assets/        # Option core_assets_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/assets/             # Option assets_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/wallpapers/         # Option dynamic_wallpapers_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/boxarts/            # Option boxarts_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/thumbnails/         # Option thumbnails_directory
                                                      # Option rgui_browser_directory, ROMs path
 mkdir -p ${PATH_RETROARCH_STUFF}/configurations/     # Option rgui_config_directory
 mkdir -p ${PATH_LIBRETRO}                            # Option libretro_directory
@@ -30,16 +30,15 @@ mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/cht/     # Option cheat_database_pat
 mkdir -p ${PATH_RETROARCH_STUFF}/video_filters/      # Option video_filter_dir
 mkdir -p ${PATH_RETROARCH_STUFF}/audio_filters/      # Option audio_filter_dir
 mkdir -p ${PATH_RETROARCH_STUFF}/shaders_cg/         # Option video_shader_dir
+mkdir -p ${PATH_RETROARCH_STUFF}/recording_output/   # Option recording_output_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/recording_config/   # Option recording_config_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/overlays/           # Option overlay_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/osk_overlays/       # Option osk_overlay_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/screenshots/        # Option screenshot_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/joypad_autoconfig/  # Option joypad_autoconfig_dir
 mkdir -p ${PATH_RETROARCH_STUFF}/input_remappings/   # Option input_remapping_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/playlists/          # Option playlist_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/savefiles/          # Option savefile_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/savestates/         # Option savestate_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/recording_output/   # Option recording_output_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/recording_config/   # Option recording_config_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/cache/              # Option cache_directory
 
 # --- These directories are not in 'Settings' -- 'Directory' --- in RGUI ---
