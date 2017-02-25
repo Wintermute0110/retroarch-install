@@ -1,5 +1,3 @@
-# Retroarch Install #
-
 **Retroarch Install** is a set of scripts and utilities that allow easy compilation and configuration
 of Retroarch. It has been tested in Debian and Ubuntu.
 
@@ -10,31 +8,34 @@ your home directoy, that is, `/home/kodi/`.
 
 ### Clone this repository in your machine
 
-Before you start make sure **git** is intalled on your machine. To clone this repository execute in
-your home directory:
+Before you start make sure **git** is intalled on your machine. If you don't already have it, create
+the directory `~/bin/` and cd into it. To clone this repository execute in:
 
 ```
 git clone https://github.com/Wintermute0110/RetroarchInstall.git
 ```
 
-This will create a directory named `/home/kodi/RetroarchInstall`.
+This will create a directory named `/home/kodi/bin/RetroarchInstall`.
 
 ### Download the `libretro-super` repository and customize your libretro cores
 
-Go inside the directory `~/RetroarchInstall` and execute
+Go inside the directory `~/bin/RetroarchInstall` and execute
 
 ```
 git clone https://github.com/libretro/libretro-super.git
 ```
 
-A new directory named `libretro-super` will be created inside `~/RetroarchInstall` Note that if you don't
+A new directory named `libretro-super` will be created inside `~/bin/RetroarchInstall` Note that if you don't
 customise the cores you want all the available libretro cores will be downloaded and installed and compilation
 times may be very long. To customise the cores you want to download/compile, edit the file
-`~/RetroarchInstall/libretro-super/build-config.sh` and comment out the cores you don't want.
+```
+~/RetroarchInstall/libretro-super/build-config.sh
+```
+and comment out the cores you don't want.
  
 ### Download the source and compile
 
-In directory `~/RetroarchInstall/` execute `./update-retroarch` This will download the source code of
+In directory `~/bin/RetroarchInstall/` execute `./update-retroarch` This will download the source code of
 both Retroarch and the cores you configured.
 
 Then, as *root* user execute `./install-build-dependencies` This will install the C/C++ compiler and some
@@ -58,4 +59,4 @@ will point to the correct places.
 1) The **System directory** is located in `~/.retroarch/system/` Here you have to put BIOS files for the
 cores that require them.
 
-2) The option `xxxx` is activated. Your saved games will be stored in `~/.retroarch/core_name/rom_name`.
+2) The option `sort_savefiles_enable` is activated. Your saved games will be stored in `~/.retroarch/savefiles/core_name/rom_name`.

@@ -3,7 +3,7 @@
 
 # Configuration  --------------------------------------------------------------
 # >> Configure paths to your system
-conf_source_path       = '~/bin/source-retroarch/retroarch-1.4.1.cfg'
+conf_source_path       = '~/bin/RetroarchInstall/retroarch-1.4.1.cfg'
 conf_dest_path         = '~/.config/retroarch/retroarch.cfg'
 conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
 
