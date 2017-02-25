@@ -27,26 +27,26 @@ Go inside the directory `~/RetroarchInstall` and execute
 git clone https://github.com/libretro/libretro-super.git
 ```
 
-A new directory named `libretro-super` will be created inside `~/RetroarchInstall`. Note that if you don't
+A new directory named `libretro-super` will be created inside `~/RetroarchInstall` Note that if you don't
 customise the cores you want all the available libretro cores will be downloaded and installed and compilation
 times may be very long. To customise the cores you want to download/compile, edit the file
 `~/RetroarchInstall/libretro-super/build-config.sh` and comment out the cores you don't want.
  
 ### Download the source and compile
 
-In directory `~/RetroarchInstall/` execute `./update-retroarch`. This will download the source code of
+In directory `~/RetroarchInstall/` execute `./update-retroarch` This will download the source code of
 both Retroarch and the cores you configured.
 
-Then, as *root* user execute `./install-build-dependencies`. This will install the C/C++ compiler and some
+Then, as *root* user execute `./install-build-dependencies` This will install the C/C++ compiler and some
 other dependencies such as libraries required to compilet Retroarch.
 
-To compile Retroarch execute `./compile-retroarch`. After this finishes, execute `./compile-libretro` to
+To compile Retroarch execute `./compile-retroarch` After this finishes, execute `./compile-libretro` to
 compile all the cores you selected to download.
 
 ### Retroarch installation and configuration
 
-To install Retroarch, execute `./install-retroarch`. This will place the Retroarch executable file in
-`/home/kodi/bin/retroarch` and all the libretro cores in `/home/kodi/bin/`. Also, it will create the
+To install Retroarch, execute `./install-retroarch` This will place the Retroarch executable file in
+`/home/kodi/bin/retroarch` and all the libretro cores in `/home/kodi/bin/` Also, it will create the
 directory `~/.retroarch` and copy all Retroarch assets, databases, etc. in there.
 
 Finally, execute `./create-retroarch-default-config.py` to create the Retroarch configuration
@@ -55,7 +55,7 @@ will point to the correct places.
 
 ### Post installation notes
 
-1) The **System directory** is located in `~/.retroarch/system/`. Here you have to put BIOS files for the
+1) The **System directory** is located in `~/.retroarch/system/` Here you have to put BIOS files for the
 cores that require them.
 
 2) The option `xxxx` is activated. Your saved games will be stored in `~/.retroarch/core_name/rom_name`.
