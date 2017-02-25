@@ -15,7 +15,7 @@ the directory `~/bin/` and cd into it. To clone this repository execute in:
 git clone https://github.com/Wintermute0110/RetroarchInstall.git
 ```
 
-This will create a directory named `/home/kodi/bin/RetroarchInstall`.
+This will create a directory named `~/bin/RetroarchInstall`.
 
 ### Download the `libretro-super` repository and customize your libretro cores
 
@@ -47,7 +47,7 @@ compile all the cores you selected to download.
 ### Retroarch installation and configuration
 
 To install Retroarch, execute `./install-retroarch` This will place the Retroarch executable file in
-`/home/kodi/bin/retroarch` and all the libretro cores in `/home/kodi/bin/` Also, it will create the
+`~/bin/retroarch` and all the libretro cores in `~/bin/libretro/` Also, it will create the
 directory `~/.retroarch` and copy all Retroarch assets, databases, etc. in there.
 
 Finally, execute `./create-retroarch-default-config.py` to create the Retroarch configuration
