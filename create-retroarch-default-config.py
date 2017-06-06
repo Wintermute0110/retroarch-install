@@ -2,15 +2,15 @@
 #
 
 # Configuration  --------------------------------------------------------------
-# >> Configure paths to your system
-conf_source_path       = '~/bin/RetroarchInstall/retroarch-1.4.1.cfg'
+# >> Configure paths to your system (you can use ~ or absolute paths)
+conf_source_path       = '/home/kodi/bin/RetroarchInstall/retroarch-1.6.0.cfg'
 conf_dest_path         = '~/.config/retroarch/retroarch.cfg'
 conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
 
 # >> Retroarch replaces absolute user home dirs by '~'
 retroarch_stuff_dir = '~/.retroarch'
-ROMs_dir            = '~/Emulation/'
-libretro_dir        = '~/bin/libretro/'
+ROMs_dir            = '/home/kodi/AEL-ROMs/'
+libretro_dir        = '/home/kodi/bin/libretro/'
 
 # Import stuff  ---------------------------------------------------------------
 import os
@@ -80,7 +80,7 @@ shutil.copyfile(conf_source_path, conf_dest_path)
 # --- Edit paths on the order they appear in RGUI 'Settings' -- 'Directory' ---
 print(">> Editing Retroarch configuration file ...")
 # >> Make sure this matches the directory creation in install-retroarch.
-# >> Updated to Retroarch 1.4.1
+# >> Updated to Retroarch 1.6.0
 # >> To have a look at orphan directories in retroarch.cfg:
 #    $ cat retroarch.cfg | grep directory
 #    $ cat retroarch.cfg | grep path

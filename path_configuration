@@ -3,8 +3,8 @@
 
 # No whitespaces in directory names.
 # Add a trailing slash / to directory names.
-PATH_LIBRETRO=~/bin/libretro/
-PATH_RETROARCH_BIN=~/bin/
+PATH_LIBRETRO=/home/kodi/bin/libretro/
+PATH_RETROARCH_BIN=/home/kodi/bin/
 PATH_RETROARCH_STUFF=~/.retroarch/
 RETROARCH_CFG_FILE=~/.config/retroarch/retroarch.cfg
 RETROARCH_CFG_DIR=~/.config/retroarch/
