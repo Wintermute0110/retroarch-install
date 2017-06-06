@@ -85,6 +85,7 @@ echo "Installing PPSSPP assets..."
 if [ -d ./libretro-super/libretro-ppsspp/assets/ ]; then
     mkdir -p ${PATH_RETROARCH_STUFF}/system/PPSSPP/
     cp -r ./libretro-super/libretro-ppsspp/assets/* ${PATH_RETROARCH_STUFF}/system/PPSSPP/
+    cp -r ./libretro-super/libretro-ppsspp/flash0/* ${PATH_RETROARCH_STUFF}/system/PPSSPP/
 fi
 
 # --- So long and thanks for all the fish ---
