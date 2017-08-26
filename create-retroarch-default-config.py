@@ -3,7 +3,7 @@
 
 # Configuration  --------------------------------------------------------------
 # >> Configure paths to your system (you can use ~ or absolute paths)
-conf_source_path       = '/home/kodi/bin/RetroarchInstall/retroarch-1.6.0.cfg'
+conf_source_path       = '/home/kodi/bin/RetroarchInstall/retroarch-1.6.7.cfg'
 conf_dest_path         = '~/.config/retroarch/retroarch.cfg'
 conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
 
@@ -70,10 +70,10 @@ print('libretro_dir            "{0}"'.format(libretro_dir))
 # --- Check if config file already exists (never overwrite it) ---
 if os.path.isfile(conf_dest_path):
   print('>> Config file "{0}" already exists'.format(conf_dest_path))
-  print('>> Aborting')
-  sys.exit(1)
+  # print('>> Aborting')
+  # sys.exit(1)
 
-# --- Copy retroarch.cfg ---  
+# --- Copy retroarch.cfg ---
 print(">> Copying Retroarch default config file ...")
 shutil.copyfile(conf_source_path, conf_dest_path)
 
@@ -131,8 +131,8 @@ edit_option(conf_dest_path, 'video_aspect_ratio_auto', 'true')
 edit_option(conf_dest_path, 'video_smooth', 'false')
 edit_option(conf_dest_path, 'video_threaded', 'true')
 edit_option(conf_dest_path, 'video_gpu_screenshot', 'false')
-edit_option(conf_dest_path, 'audio_driver', 'alsathread')
-edit_option(conf_dest_path, 'input_driver', 'udev')
+# edit_option(conf_dest_path, 'audio_driver', 'alsathread')
+# edit_option(conf_dest_path, 'input_driver', 'udev')
 
 # >> Separate savestates and savefiles per-core. Important because different cores can be used to
 #    run the same ROM.
