@@ -3,7 +3,7 @@
 
 # Configuration  --------------------------------------------------------------
 # >> Configure paths to your system (you can use ~ or absolute paths)
-conf_source_path       = '/home/kodi/bin/RetroarchInstall/retroarch-1.6.7.cfg'
+conf_source_path       = '/home/kodi/bin/RetroarchInstall/retroarch-1.6.9.cfg'
 conf_dest_path         = '~/.config/retroarch/retroarch.cfg'
 conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
 
@@ -80,7 +80,6 @@ shutil.copyfile(conf_source_path, conf_dest_path)
 # --- Edit paths on the order they appear in RGUI 'Settings' -- 'Directory' ---
 print(">> Editing Retroarch configuration file ...")
 # >> Make sure this matches the directory creation in install-retroarch.
-# >> Updated to Retroarch 1.6.0
 # >> To have a look at orphan directories in retroarch.cfg:
 #    $ cat retroarch.cfg | grep directory
 #    $ cat retroarch.cfg | grep path
@@ -119,7 +118,7 @@ edit_option(conf_dest_path, 'cache_directory',              os.path.join(retroar
 # edit_option(conf_dest_path, 'bundle_assets_dst_path_subdir', os.path.join(retroarch_stuff_dir, 'nodir/'))
 
 # --- Other options -----------------------------------------------------------
-# >> For idead have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
+# >> For ideas have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
 edit_option(conf_dest_path, 'menu_driver', 'xmb')
 edit_option(conf_dest_path, 'rgui_show_start_screen', 'false')
 edit_option(conf_dest_path, 'video_font_path', os.path.join(retroarch_stuff_dir, 'assets/xmb/monochrome/font.ttf'))
