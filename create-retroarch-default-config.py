@@ -8,7 +8,7 @@ conf_dest_path         = '~/.config/retroarch/retroarch.cfg'
 conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
 
 # >> Retroarch replaces absolute user home dirs by '~'
-retroarch_stuff_dir = '~/.retroarch'
+retroarch_stuff_dir = '~/.retroarch/'
 ROMs_dir            = '/home/kodi/AEL-ROMs/'
 libretro_dir        = '/home/kodi/bin/libretro/'
 
@@ -57,7 +57,7 @@ def edit_option(filename, option_name, option_value):
 conf_source_path = os.path.expanduser(conf_source_path)
 conf_dest_path = os.path.expanduser(conf_dest_path)
 conf_dest_initial_path = os.path.expanduser(conf_dest_initial_path)
-retroarch_stuff_dir = os.path.expanduser(retroarch_stuff_dir)
+# retroarch_stuff_dir = os.path.expanduser(retroarch_stuff_dir)
 ROMs_dir = os.path.expanduser(ROMs_dir)
 libretro_dir = os.path.expanduser(libretro_dir)
 print('conf_source_path        "{0}"'.format(conf_source_path))
@@ -110,7 +110,7 @@ edit_option(conf_dest_path, 'savefile_directory',           os.path.join(retroar
 edit_option(conf_dest_path, 'savestate_directory',          os.path.join(retroarch_stuff_dir, 'savestates/'))
 edit_option(conf_dest_path, 'cache_directory',              os.path.join(retroarch_stuff_dir, 'cache/'))
 
-# --- These directories are not in 'Settings' -- 'Directory' --- in RGUI ---
+# --- These directories are not in RGUI menu 'Settings' -- 'Directory' ---
 # edit_option(conf_dest_path, 'resampler_directory',           os.path.join(retroarch_stuff_dir, 'nodir/'))
 # edit_option(conf_dest_path, 'core_options_path',             os.path.join(retroarch_stuff_dir, 'nodir/'))
 # edit_option(conf_dest_path, 'bundle_assets_src_path',        os.path.join(retroarch_stuff_dir, 'nodir/'))
