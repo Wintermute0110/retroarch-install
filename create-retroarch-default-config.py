@@ -84,14 +84,22 @@ print(">> Editing Retroarch configuration file ...")
 #    $ cat retroarch.cfg | grep directory
 #    $ cat retroarch.cfg | grep path
 # >> There is a bug in Retroarch, some directories end in _path (for files) instead of _directory.
+# >> Named System/BIOS in Retroarch
 edit_option(conf_dest_path, 'system_directory',             os.path.join(retroarch_stuff_dir, 'system/'))
-edit_option(conf_dest_path, 'core_assets_directory',        os.path.join(retroarch_stuff_dir, 'core_assets/')) # >> Named Downloads in Retroarch
+# >> Named Downloads
+edit_option(conf_dest_path, 'core_assets_directory',        os.path.join(retroarch_stuff_dir, 'core_assets/'))
 edit_option(conf_dest_path, 'assets_directory',             os.path.join(retroarch_stuff_dir, 'assets/'))
+# >> Named Dynamic Backgrounds
 edit_option(conf_dest_path, 'dynamic_wallpapers_directory', os.path.join(retroarch_stuff_dir, 'wallpapers/'))
 edit_option(conf_dest_path, 'thumbnails_directory',         os.path.join(retroarch_stuff_dir, 'thumbnails/'))
+# >> Named File Browser
 edit_option(conf_dest_path, 'rgui_browser_directory',       os.path.join(ROMs_dir))
+# >> Named Config
 edit_option(conf_dest_path, 'rgui_config_directory',        os.path.join(retroarch_stuff_dir, 'configurations/'))
-edit_option(conf_dest_path, 'libretro_directory',           os.path.join(libretro_dir))
+# >> Named Core. Apparently ':/' means '/home/user_name/bin/'
+# edit_option(conf_dest_path, 'libretro_directory',           os.path.join(libretro_dir))
+edit_option(conf_dest_path, 'libretro_directory',           ':/libretro/')
+# >> Named Core Info
 edit_option(conf_dest_path, 'libretro_info_path',           os.path.join(retroarch_stuff_dir, 'info/'))
 edit_option(conf_dest_path, 'content_database_path',        os.path.join(retroarch_stuff_dir, 'libretrodb/rdb/'))
 edit_option(conf_dest_path, 'cursor_directory',             os.path.join(retroarch_stuff_dir, 'libretrodb/cursors/'))
@@ -139,12 +147,19 @@ edit_option(conf_dest_path, 'sort_savefiles_enable', 'true')
 edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 
 # --- Custom options ---
+# >> Keep old keys Z and X for nagivating Retroarch GUI
+edit_option(conf_dest_path, 'menu_unified_controls', 'true')
+edit_option(conf_dest_path, 'all_users_control_menu', 'true')
+edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
+edit_option(conf_dest_path, 'xmb_menu_color_theme', '8')
+edit_option(conf_dest_path, 'menu_shader_pipeline', '3')
+edit_option(conf_dest_path, 'xmb_show_favorites', 'false')
+edit_option(conf_dest_path, 'xmb_show_images', 'false')
+edit_option(conf_dest_path, 'xmb_show_music', 'false')
+
 # >> Logitech F710 joystick Ubuntu Trusty option triggers as buttons
 edit_option(conf_dest_path, 'input_exit_emulator_btn', '10')
 edit_option(conf_dest_path, 'input_menu_toggle_btn', '12')
-
-# >> Keep old keys Z and X for nagivating Retroarch GUI
-edit_option(conf_dest_path, 'menu_unified_controls', 'true')
 
 # --- Copy newly edited retroarch.cfg into retroarch_initial.cfg as a backup ---
 print(">> Backing up initial configuration file ...")
