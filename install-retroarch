@@ -45,9 +45,9 @@ mkdir -p ${PATH_RETROARCH_STUFF}/cache/              # Option cache_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/resampler/          # Option resampler_directory
 
 # --- Copy cores and core INFO files ---
-# Clean the cores before copying.
-echo "Cleaning old LibRetro cores..."
-rm -f ${PATH_LIBRETRO}/*.so
+# >> Clean the cores before copying.
+# echo "Cleaning old LibRetro cores..."
+# rm -f ${PATH_LIBRETRO}/*.so
 
 echo "Installing LibRetro cores..."
 cp ./libretro-super/dist/unix/*.so ${PATH_LIBRETRO}
