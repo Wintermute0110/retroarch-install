@@ -49,8 +49,8 @@ mkdir -p ${PATH_RETROARCH_STUFF}/resampler/          # Option resampler_director
 # echo "Cleaning old LibRetro cores..."
 # rm -f ${PATH_LIBRETRO}/*.so
 
-echo "Installing LibRetro cores..."
-cp ./libretro-super/dist/unix/*.so ${PATH_LIBRETRO}
+# echo "Installing LibRetro cores..."
+# cp ./libretro-super/dist/unix/*.so ${PATH_LIBRETRO}
 
 echo "Installing LibRetro core info files..."
 rm -f ${PATH_RETROARCH_STUFF}/info/*.info
