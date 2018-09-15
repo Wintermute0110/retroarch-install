@@ -126,7 +126,7 @@ edit_option(conf_dest_path, 'cache_directory',              os.path.join(retroar
 # edit_option(conf_dest_path, 'bundle_assets_dst_path_subdir', os.path.join(retroarch_stuff_dir, 'nodir/'))
 
 # --- Other options -----------------------------------------------------------
-# >> For ideas have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
+# For ideas have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
 edit_option(conf_dest_path, 'menu_driver', 'xmb')
 edit_option(conf_dest_path, 'rgui_show_start_screen', 'false')
 edit_option(conf_dest_path, 'video_font_path', os.path.join(retroarch_stuff_dir, 'assets/xmb/monochrome/font.ttf'))
@@ -138,29 +138,33 @@ edit_option(conf_dest_path, 'video_aspect_ratio_auto', 'true')
 edit_option(conf_dest_path, 'video_smooth', 'false')
 edit_option(conf_dest_path, 'video_threaded', 'true')
 edit_option(conf_dest_path, 'video_gpu_screenshot', 'false')
-# edit_option(conf_dest_path, 'audio_driver', 'alsathread')
+edit_option(conf_dest_path, 'audio_driver', 'sdl2')
 # edit_option(conf_dest_path, 'input_driver', 'udev')
 
-# >> Separate savestates and savefiles per-core. Important because different cores can be used to
-#    run the same ROM.
+# Separate savestates and savefiles per-core. Important because different cores can be used to
+# run the same ROM.
 edit_option(conf_dest_path, 'sort_savefiles_enable', 'true')
 edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 
 # --- Custom options ---
-# >> Keep old keys Z and X for nagivating Retroarch GUI
+# Keep old keys Z and X for nagivating Retroarch GUI
 edit_option(conf_dest_path, 'menu_unified_controls', 'true')
 edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
 edit_option(conf_dest_path, 'xmb_menu_color_theme', '8')
 edit_option(conf_dest_path, 'menu_shader_pipeline', '3')
-# Not in 1.7.4
+# Options not in 1.7.4
 # edit_option(conf_dest_path, 'xmb_show_favorites', 'false')
 # edit_option(conf_dest_path, 'xmb_show_images', 'false')
 # edit_option(conf_dest_path, 'xmb_show_music', 'false')
 
-# >> Logitech F710 joystick Ubuntu Trusty option triggers as buttons
-edit_option(conf_dest_path, 'input_exit_emulator_btn', '10')
-edit_option(conf_dest_path, 'input_menu_toggle_btn', '12')
+# --- Logitech F710 joystick, xpad option triggers as buttons OFF ---
+# Guide button closes Retroarch
+edit_option(conf_dest_path, 'input_exit_emulator_btn', '8')
+# R3 opens/closes Retroarch menu
+edit_option(conf_dest_path, 'input_menu_toggle_btn', '10')
+# L3 toggles fullscreen mode
+edit_option(conf_dest_path, 'input_toggle_fullscreen_btn', '9')
 
 # --- Copy newly edited retroarch.cfg into retroarch_initial.cfg as a backup ---
 print(">> Backing up initial configuration file ...")
