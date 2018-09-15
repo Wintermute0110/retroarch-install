@@ -3,7 +3,7 @@
 
 # Configuration  --------------------------------------------------------------
 # >> Configure paths to your system (you can use ~ or absolute paths)
-conf_source_path       = '/home/kodi/bin/RetroarchInstall/retroarch-1.7.3.cfg'
+conf_source_path       = '/home/kodi/bin/RetroarchInstall/retroarch-1.7.4.cfg'
 conf_dest_path         = '~/.config/retroarch/retroarch.cfg'
 conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
 
@@ -153,7 +153,7 @@ edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
 edit_option(conf_dest_path, 'xmb_menu_color_theme', '8')
 edit_option(conf_dest_path, 'menu_shader_pipeline', '3')
-# Not in 1.7.1
+# Not in 1.7.4
 # edit_option(conf_dest_path, 'xmb_show_favorites', 'false')
 # edit_option(conf_dest_path, 'xmb_show_images', 'false')
 # edit_option(conf_dest_path, 'xmb_show_music', 'false')
