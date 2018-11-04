@@ -1,8 +1,17 @@
 #!/bin/bash
 #
 # Officially recomended in RetroArcg github wiki
-apt-get install make git-core curl g++ pkg-config \
-                libglu1-mesa-dev libgbm-dev freeglut3-dev mesa-common-dev libgles2-mesa-dev \
-                libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev \
-                libxml2-dev libusb-dev \
-                nvidia-cg-toolkit
+apt-get install build-essential make git curl pkg-config nvidia-cg-toolkit \
+    freeglut3-dev \
+    mesa-common-dev \
+    libgbm-dev \
+    libgl1-mesa-dev \
+    libgles1-mesa-dev \
+    libgles2-mesa-dev \
+    libglu1-mesa-dev \
+    libsdl2-dev \
+    libsdl2-image-dev \
+    libusb-dev \
+    libvulkan-dev \
+    vulkan-headers \
+    libxml2-dev \
