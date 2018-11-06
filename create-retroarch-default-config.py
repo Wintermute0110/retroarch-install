@@ -3,7 +3,7 @@
 
 # Configuration  --------------------------------------------------------------
 # >> Configure paths to your system (you can use ~ or absolute paths)
-conf_source_path       = '/home/kodi/bin/RetroarchInstall/retroarch-1.7.4.cfg'
+conf_source_path       = '/home/kodi/RetroarchInstall/retroarch-1.7.5.cfg'
 conf_dest_path         = '~/.config/retroarch/retroarch.cfg'
 conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
 
