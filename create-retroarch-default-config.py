@@ -159,12 +159,14 @@ edit_option(conf_dest_path, 'menu_shader_pipeline', '3')
 # edit_option(conf_dest_path, 'xmb_show_music', 'false')
 
 # --- Logitech F710 joystick, xpad option triggers as buttons OFF ---
+# In the future use joypad autoconfigs to configure gamepads.
+#
 # Guide button closes Retroarch
-edit_option(conf_dest_path, 'input_exit_emulator_btn', '8')
+# edit_option(conf_dest_path, 'input_exit_emulator_btn', '8')
 # R3 opens/closes Retroarch menu
-edit_option(conf_dest_path, 'input_menu_toggle_btn', '10')
+# edit_option(conf_dest_path, 'input_menu_toggle_btn', '10')
 # L3 toggles fullscreen mode
-edit_option(conf_dest_path, 'input_toggle_fullscreen_btn', '9')
+# edit_option(conf_dest_path, 'input_toggle_fullscreen_btn', '9')
 
 # --- Copy newly edited retroarch.cfg into retroarch_initial.cfg as a backup ---
 print(">> Backing up initial configuration file ...")
