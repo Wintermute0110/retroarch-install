@@ -130,8 +130,8 @@ all the cores you selected to download.
 
 ## Retroarch installation and configuration
 
-To install Retroarch, execute `./install-retroarch` This will place the Retroarch executable file in
-`~/bin/retroarch` and all the libretro cores in `~/bin/libretro/` (if you compiled them)
+To install Retroarch, execute `./install-retroarch.sh` This will place the Retroarch executable
+file in `~/bin/retroarch` and all the libretro cores in `~/bin/libretro/` (if you compiled them)
 Also, it will create the directory `~/.retroarch` and copy all Retroarch assets, databases, etc.
 
 To create a default Retroarch configuration file pointing to the correct directories, first
@@ -140,7 +140,10 @@ configuration file:
 ```
 # Configuration  --------------------------------------------------------------
 # Configure paths to match your system (you can use ~ or absolute paths)
-conf_source_path = '/home/kodi/RetroarchInstall/retroarch-1.7.6.cfg'
+conf_source_path = '/home/kodi/Retroarch-Install/retroarch-1.7.6.cfg'
+...
+# Directory where you have your ROMs.
+ROMs_dir = '/home/kodi/AEL-ROMs/'
 ```
 
 Note that `Retroarch-Install` includes only a few default configuration files, usually for the
@@ -150,14 +153,26 @@ Finally, execute `./create-retroarch-default-config.py` to create the Retroarch 
 file `~/.config/retroarch/retraoarch.cfg`. The configuration file is automatically edited
 so all paths will point to the correct places in `~/.retroarch/`
 
+A backup of the original configuration file is created in `~/.config/retroarch/retroarch_initial.cfg`. 
+To see the changes between both files, go to `~/.config/retroarch/` and execute
+`diff -u --color retroarch_initial.cfg retroarch.cfg`
+
 ## Updating Retroarch
 
-Go to `` and execute the following steps:
+Go to directory `~/Retroarch-Install/` and execute the following steps:
+
 ```
 ./update-libretro-super-using-git.sh
 ./update-retroarch.sh
-
+git -C libretro-super/retroarch/ tag
+nano compile-retroarch.sh
+./compile-retroarch.sh
+./install-retroarch.sh
+nano create-retroarch-default-config.py
+./create-retroarch-default-config.py
 ```
+
+`nano` is the editor I use but feel free to use any other one such as `vim` or `emacs`.
 
 ## Post installation notes
 
@@ -166,3 +181,19 @@ files for the cores that require them.
 
 2) The option `sort_savefiles_enable` is activated. Your saved games will be stored 
 in `~/.retroarch/savefiles/core_name/rom_name`.
+
+## Internal notes
+
+### Creating a new Retroarch default configuration file
+
+After a clean Retroarch installation, delete `~/.config/retroarch/retraoarch.cfg` and then 
+execute `~/bin/retroarch`. This will create a default configuration file. Copy this file
+with a name like `~/Retroarch-Install/retroarch-1.7.6.cfg` matching the Retroarch version.
+
+### PPSSPP core assets
+
+Write me.
+
+### Dolphin core assets
+
+Write me.

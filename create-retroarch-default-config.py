@@ -3,14 +3,16 @@
 
 # Configuration  --------------------------------------------------------------
 # Configure paths to match your system (you can use ~ or absolute paths)
-conf_source_path = '/home/kodi/RetroarchInstall/retroarch-1.7.5.cfg'
+conf_source_path = '/home/kodi/Retroarch-Install/retroarch-1.7.5.cfg'
 conf_dest_path = '~/.config/retroarch/retroarch.cfg'
 conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
 
-# >> Retroarch replaces absolute user home dirs by '~'
+# Retroarch replaces absolute user home dirs by '~'
 retroarch_stuff_dir = '~/.retroarch/'
-ROMs_dir            = '/home/kodi/AEL-ROMs/'
-libretro_dir        = '/home/kodi/bin/libretro/'
+libretro_dir = '/home/kodi/bin/libretro/'
+
+# Directory where you have your ROMs.
+ROMs_dir = '/home/kodi/AEL-ROMs/'
 
 # Import stuff  ---------------------------------------------------------------
 import os
@@ -87,12 +89,12 @@ print(">> Editing Retroarch configuration file ...")
 # >> Named System/BIOS in Retroarch
 edit_option(conf_dest_path, 'system_directory',             os.path.join(retroarch_stuff_dir, 'system/'))
 # >> Named Downloads
-edit_option(conf_dest_path, 'core_assets_directory',        os.path.join(retroarch_stuff_dir, 'core_assets/'))
+edit_option(conf_dest_path, 'core_assets_directory',        os.path.join(retroarch_stuff_dir, 'downloads/'))
 edit_option(conf_dest_path, 'assets_directory',             os.path.join(retroarch_stuff_dir, 'assets/'))
 # >> Named Dynamic Backgrounds
 edit_option(conf_dest_path, 'dynamic_wallpapers_directory', os.path.join(retroarch_stuff_dir, 'wallpapers/'))
 edit_option(conf_dest_path, 'thumbnails_directory',         os.path.join(retroarch_stuff_dir, 'thumbnails/'))
-# >> Named File Browser
+# >> Named File Browser (default ROMs directory)
 edit_option(conf_dest_path, 'rgui_browser_directory',       os.path.join(ROMs_dir))
 # >> Named Config
 edit_option(conf_dest_path, 'rgui_config_directory',        os.path.join(retroarch_stuff_dir, 'configurations/'))
@@ -111,7 +113,8 @@ edit_option(conf_dest_path, 'recording_output_directory',   os.path.join(retroar
 edit_option(conf_dest_path, 'recording_config_directory',   os.path.join(retroarch_stuff_dir, 'recording_config/'))
 edit_option(conf_dest_path, 'overlay_directory',            os.path.join(retroarch_stuff_dir, 'overlays/'))
 edit_option(conf_dest_path, 'screenshot_directory',         os.path.join(retroarch_stuff_dir, 'screenshots/'))
-edit_option(conf_dest_path, 'joypad_autoconfig_dir',        os.path.join(retroarch_stuff_dir, 'joypad_autoconfig/')) # Named Input Autoconfig
+# Named Input Autoconfig
+edit_option(conf_dest_path, 'joypad_autoconfig_dir',        os.path.join(retroarch_stuff_dir, 'joypad_autoconfig/'))
 edit_option(conf_dest_path, 'input_remapping_directory',    os.path.join(retroarch_stuff_dir, 'input_remappings/'))
 edit_option(conf_dest_path, 'playlist_directory',           os.path.join(retroarch_stuff_dir, 'playlists/'))
 edit_option(conf_dest_path, 'savefile_directory',           os.path.join(retroarch_stuff_dir, 'savefiles/'))
@@ -138,8 +141,11 @@ edit_option(conf_dest_path, 'video_aspect_ratio_auto', 'true')
 edit_option(conf_dest_path, 'video_smooth', 'false')
 edit_option(conf_dest_path, 'video_threaded', 'true')
 edit_option(conf_dest_path, 'video_gpu_screenshot', 'false')
-edit_option(conf_dest_path, 'audio_driver', 'sdl2')
-# edit_option(conf_dest_path, 'input_driver', 'udev')
+edit_option(conf_dest_path, 'audio_driver', 'pulse')
+edit_option(conf_dest_path, 'input_axis_threshold', '0.050000')
+edit_option(conf_dest_path, 'input_overlay_show_physical_inputs', 'true')
+edit_option(conf_dest_path, 'video_message_pos_x', '0.010000')
+edit_option(conf_dest_path, 'video_message_pos_y', '0.969999')
 
 # Separate savestates and savefiles per-core. Important because different cores can be used to
 # run the same ROM.
@@ -153,6 +159,7 @@ edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
 edit_option(conf_dest_path, 'xmb_menu_color_theme', '8')
 edit_option(conf_dest_path, 'menu_shader_pipeline', '3')
+
 # Options not in 1.7.4
 # edit_option(conf_dest_path, 'xmb_show_favorites', 'false')
 # edit_option(conf_dest_path, 'xmb_show_images', 'false')
