@@ -1,7 +1,7 @@
 #!/bin/bash
 # List of tags ("git tag" to get a full list):
 # v1.7.0
-# v1.7.4
+# v1.7.6
 cd libretro-super
 cd retroarch
 

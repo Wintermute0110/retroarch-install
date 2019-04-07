@@ -16,7 +16,7 @@ mkdir -p ${RETROARCH_CFG_DIR}
 # Use same order as create-retroarch-default-config.py
 echo "Creating RetroArch stuff directories..."
 mkdir -p ${PATH_RETROARCH_STUFF}/system/             # Option system_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/core_assets/        # Option core_assets_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/downloads/          # Option core_assets_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/assets/             # Option assets_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/wallpapers/         # Option dynamic_wallpapers_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/thumbnails/         # Option thumbnails_directory
@@ -44,7 +44,7 @@ mkdir -p ${PATH_RETROARCH_STUFF}/cache/              # Option cache_directory
 # --- These directories are not in 'Settings' -- 'Directory' --- in RGUI ---
 mkdir -p ${PATH_RETROARCH_STUFF}/resampler/          # Option resampler_directory
 
-# --- Copy cores and core INFO files ---
+# --- Copy cores ---
 # Clean the cores before copying.
 # NOTE do not clean the cores because cores are downloaded with the online updater.
 # echo "Cleaning old LibRetro cores..."
@@ -53,6 +53,7 @@ mkdir -p ${PATH_RETROARCH_STUFF}/resampler/          # Option resampler_director
 # echo "Installing LibRetro cores..."
 # cp ./libretro-super/dist/unix/*.so ${PATH_LIBRETRO}
 
+# --- Copy core INFO files ---
 echo "Installing LibRetro core info files..."
 rm -f ${PATH_RETROARCH_STUFF}/info/*.info
 cp ./libretro-super/dist/info/*.info ${PATH_RETROARCH_STUFF}/info/
@@ -65,29 +66,32 @@ mkdir -p ${PATH_RETROARCH_BIN}
 cp ./libretro-super/retroarch/retroarch ${PATH_RETROARCH_BIN}
 
 # --- Copy Retroarch stuff (assets, databases, etc.) ---
+# NOTE submodules in git does not have the .git directory.
 echo "Installing shaders_cg ..."
-cp -r ./libretro-super/retroarch/media/shaders_cg/* ${PATH_RETROARCH_STUFF}/shaders_cg/
+# cp -r ./libretro-super/retroarch/media/shaders_cg/* ${PATH_RETROARCH_STUFF}/shaders_cg/
+rsync -a ./libretro-super/retroarch/media/shaders_cg/ ${PATH_RETROARCH_STUFF}/shaders_cg/
 
 echo "Installing overlays ..."
-cp -r ./libretro-super/retroarch/media/overlays/* ${PATH_RETROARCH_STUFF}/overlays/
+rsync -a ./libretro-super/retroarch/media/overlays/ ${PATH_RETROARCH_STUFF}/overlays/
 
 echo "Installing assets ..."
-cp -r ./libretro-super/retroarch/media/assets/* ${PATH_RETROARCH_STUFF}/assets/
+rsync -a ./libretro-super/retroarch/media/assets/ ${PATH_RETROARCH_STUFF}/assets/
 
 echo "Installing joystick autoconfig ..."
-cp -r ./libretro-super/retroarch/media/autoconfig/* ${PATH_RETROARCH_STUFF}/joypad_autoconfig/
+rsync -a ./libretro-super/retroarch/media/autoconfig/ ${PATH_RETROARCH_STUFF}/joypad_autoconfig/
 
 echo "Installing libretrodb ..."
-cp -r ./libretro-super/retroarch/media/libretrodb/* ${PATH_RETROARCH_STUFF}/libretrodb
+rsync -a ./libretro-super/retroarch/media/libretrodb/ ${PATH_RETROARCH_STUFF}/libretrodb/
 
 # --- Installing core specific stuff ---
-echo "Installing PPSSPP assets..."
 # >> See http://wiki.libretro.com/index.php?title=PPSSPP
 if [ -d ./libretro-super/libretro-ppsspp/assets/ ]; then
-    
+    echo "Installing PPSSPP assets..."
     mkdir -p ${PATH_RETROARCH_STUFF}/system/PPSSPP/
     cp -r ./libretro-super/libretro-ppsspp/assets/* ${PATH_RETROARCH_STUFF}/system/PPSSPP/
     cp -r ./libretro-super/libretro-ppsspp/flash0/* ${PATH_RETROARCH_STUFF}/system/PPSSPP/
+else
+    echo "WARNING: PPSSPP assets not available."
 fi
 
 # --- So long and thanks for all the fish ---
