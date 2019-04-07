@@ -1,6 +1,0 @@
-#!/bin/bash
-#
-cd libretro-super
-bash libretro-fetch.sh
-cd ..
-
