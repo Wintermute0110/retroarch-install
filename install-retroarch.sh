@@ -45,7 +45,8 @@ mkdir -p ${PATH_RETROARCH_STUFF}/cache/              # Option cache_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/resampler/          # Option resampler_directory
 
 # --- Copy cores and core INFO files ---
-# >> Clean the cores before copying.
+# Clean the cores before copying.
+# NOTE do not clean the cores because cores are downloaded with the online updater.
 # echo "Cleaning old LibRetro cores..."
 # rm -f ${PATH_LIBRETRO}/*.so
 
@@ -83,6 +84,7 @@ cp -r ./libretro-super/retroarch/media/libretrodb/* ${PATH_RETROARCH_STUFF}/libr
 echo "Installing PPSSPP assets..."
 # >> See http://wiki.libretro.com/index.php?title=PPSSPP
 if [ -d ./libretro-super/libretro-ppsspp/assets/ ]; then
+    
     mkdir -p ${PATH_RETROARCH_STUFF}/system/PPSSPP/
     cp -r ./libretro-super/libretro-ppsspp/assets/* ${PATH_RETROARCH_STUFF}/system/PPSSPP/
     cp -r ./libretro-super/libretro-ppsspp/flash0/* ${PATH_RETROARCH_STUFF}/system/PPSSPP/

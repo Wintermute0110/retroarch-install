@@ -9,7 +9,7 @@ cd retroarch
 # git checkout master
 
 # --- Or switch to a specific release tag ---
-git checkout tags/v1.7.5
+git checkout tags/v1.7.6
 
 # --- Build ---
 cd ..

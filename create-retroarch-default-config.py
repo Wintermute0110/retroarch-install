@@ -2,9 +2,9 @@
 #
 
 # Configuration  --------------------------------------------------------------
-# >> Configure paths to your system (you can use ~ or absolute paths)
-conf_source_path       = '/home/kodi/RetroarchInstall/retroarch-1.7.5.cfg'
-conf_dest_path         = '~/.config/retroarch/retroarch.cfg'
+# Configure paths to match your system (you can use ~ or absolute paths)
+conf_source_path = '/home/kodi/RetroarchInstall/retroarch-1.7.5.cfg'
+conf_dest_path = '~/.config/retroarch/retroarch.cfg'
 conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
 
 # >> Retroarch replaces absolute user home dirs by '~'
