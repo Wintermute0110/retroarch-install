@@ -23,7 +23,7 @@ import re
 # Functions  ------------------------------------------------------------------
 def edit_option(filename, option_name, option_value):
   new_line_str = option_name + ' = "' + option_value + '"'
-  print("Option: {0} -> '{1}'".format(option_name.rjust(32), new_line_str))
+  print("{0} -> '{1}'".format(option_name.ljust(34), new_line_str))
 
   # --- Open file ---
   fin = open(filename, 'rt')
