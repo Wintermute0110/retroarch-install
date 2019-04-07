@@ -13,5 +13,4 @@ apt-get install build-essential make git curl pkg-config nvidia-cg-toolkit \
     libsdl2-image-dev \
     libusb-dev \
     libvulkan-dev \
-    vulkan-headers \
-    libxml2-dev \
+    libxml2-dev
