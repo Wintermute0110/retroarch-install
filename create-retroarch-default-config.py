@@ -199,7 +199,7 @@ edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 # --- Development options. Never user for release ------------------------------------------------
 edit_option(conf_dest_path, 'fps_show', 'true')
 edit_option(conf_dest_path, 'memory_show', 'true')
-edit_option(conf_dest_path, 'statistics_show', 'true')
+# edit_option(conf_dest_path, 'statistics_show', 'true')
 edit_option(conf_dest_path, 'pause_nonactive', 'false')
 
 # --- Input options ------------------------------------------------------------------------------
