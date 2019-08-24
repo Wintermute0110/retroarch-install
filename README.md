@@ -182,6 +182,12 @@ nano create-retroarch-default-config.py
  2. The option `sort_savefiles_enable` is activated. Your saved games will be stored
     in `~/.retroarch/savefiles/core_name/rom_name`.
 
+ 3. In order to use vulkan in cores I think Retroarch `video_driver` options must be set
+    to `vulkan`, otherwise cores will use OpenGL if `video_driver = "gl"`.
+
+ 4. If Retroarch is configured to use vulkan video driver and a OpenGL-only core is loaded,
+    for example `mupen64plus_next_libretro.so`, Retroarch crashes with a **Segmentation fault**.
+    
 ### Problems in Linux Debian/Ubuntu and Intel graphic cards
 
 XMB menu driver causes Retroarch to freeze. This freezing is rather random, sometimes happens,
