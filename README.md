@@ -187,7 +187,13 @@ nano create-retroarch-default-config.py
 
  4. If Retroarch is configured to use vulkan video driver and a OpenGL-only core is loaded,
     for example `mupen64plus_next_libretro.so`, Retroarch crashes with a **Segmentation fault**.
-    
+
+ 5. A minimal `xorg.conf` with Section Device containing Identifier, Driver and VendorName
+    is enough for Xorg to use the **intel** driver and not the **modesetting* driver.
+    Keep in mind that Debian recommends to use the modeseting driver.
+
+ 6. The **intel** driver seems to have better performance compared to the **modesetting** driver.
+
 ### Problems in Linux Debian/Ubuntu and Intel graphic cards
 
 XMB menu driver causes Retroarch to freeze. This freezing is rather random, sometimes happens,
