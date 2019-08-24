@@ -176,11 +176,76 @@ nano create-retroarch-default-config.py
 
 ## Post installation notes
 
-1) The **System directory** is located in `~/.retroarch/system/` Here you have to put BIOS
-files for the cores that require them.
+ 1. The **System directory** is located in `~/.retroarch/system/` Here you have to put BIOS
+    files for the cores that require them.
 
-2) The option `sort_savefiles_enable` is activated. Your saved games will be stored 
-in `~/.retroarch/savefiles/core_name/rom_name`.
+ 2. The option `sort_savefiles_enable` is activated. Your saved games will be stored
+    in `~/.retroarch/savefiles/core_name/rom_name`.
+
+### Problems in Linux Debian/Ubuntu and Intel graphic cards
+
+XMB menu driver causes Retroarch to freeze. This freezing is rather random, sometimes happens,
+sometimes not. One solution is to use the rgui menu driver. Other users propose to set
+DRI option to **2**. Users report a loss of performance when using DRI **2**.
+
+```
+# In Debian file /etc/X11/xorg.conf
+Section "Device"
+  Identifier  "Device0"
+  Driver      "intel"
+  VendorName  "INTEL corporation"
+  Option      "DRI" "2"
+  Option      "TearFree" "false"
+  Option      "TripleBuffer" "false"
+EndSection
+```
+
+Lakka `xorg-i915.conf` for Intel video cards.
+
+```
+# https://github.com/libretro/Lakka-LibreELEC/blob/master/projects/Generic/filesystem/etc/X11/xorg-i915.conf
+Section "Device"
+  Identifier  "Device0"
+  Driver      "intel"
+  VendorName  "INTEL Corporation"
+  Option      "TripleBuffer" "false"
+  Option      "TearFree" "false"
+EndSection
+```
+
+[Post in Retropie forum](https://retropie.org.uk/forum/post/184322)
+
+> Yeah, i said it countless times on various forums (including this one i think), intel/nvidia
+> open-source drivers on linux are kinda crappy, setting DRI to 2 in your xorg configuration
+> files is also generally a good fix for this kind of issue.
+
+### Does Retroarch 1.7.7 works on Debian using RGUI and no xorg.conf?
+
+Interesting: in Debian, if file `xorg.conf` does not exist then Xorg uses
+the `modesetting` driver. The list of drivers in the system is in the directory
+`/usr/lib/xorg/modules/drivers/`.
+
+```
+user $ cat /var/log/Xorg.0.log | grep modeset
+[  3222.762] (==) Matched modesetting as autoconfigured driver 0
+[  3222.762] (II) LoadModule: "modesetting"
+[  3222.762] (II) Loading /usr/lib/xorg/modules/drivers/modesetting_drv.so
+[  3222.763] (II) Module modesetting: vendor="X.Org Foundation"
+[  3222.765] (II) modesetting: Driver for Modesetting Kernel Drivers: kms
+[  3222.793] (II) modeset(0): using drv /dev/dri/card0
+...
+[  3222.818] (II) modeset(0): glamor X acceleration enabled on Mesa DRI Intel(R) Haswell Mobile
+[  3222.818] (II) modeset(0): glamor initialized
+...
+[  3222.893] (==) modeset(0): DPMS enabled
+[  3222.894] (II) modeset(0): [DRI2] Setup complete
+[  3222.894] (II) modeset(0): [DRI2]   DRI driver: i965
+[  3222.894] (II) modeset(0): [DRI2]   VDPAU driver: i965
+```
+
+OK... now it seems to work well with no xorg.conf file, the modeset driver, and xbm menu,
+for both standard and OpenGL cores. I have no idea what configuration option I changed
+to make it work.
 
 ## Internal notes
 
@@ -188,7 +253,8 @@ in `~/.retroarch/savefiles/core_name/rom_name`.
 
 After a clean Retroarch installation, delete `~/.config/retroarch/retraoarch.cfg` and then 
 execute `~/bin/retroarch`. This will create a default configuration file. Copy this file
-with a name like `~/Retroarch-Install/retroarch-1.7.6.cfg` matching the Retroarch version.
+with a name like `~/Retroarch-Install/retroarch-<version>.cfg`, `<version>` matching
+the Retroarch version.
 
 ### PPSSPP core assets
 
@@ -197,3 +263,17 @@ Write me.
 ### Dolphin core assets
 
 Write me.
+
+### Getting system information for debugging
+
+```
+user $ cat /var/log/Xorg.0.log | grep intel
+```
+
+```
+user $ glxinfo | grep version
+```
+
+```
+vulkaninfo | grep Version
+```
