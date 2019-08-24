@@ -13,36 +13,39 @@ mkdir -p ${RETROARCH_CFG_DIR}
 
 # --- Create RetroArch paths ---
 # See https://github.com/libretro/RetroArch/blob/master/fetch-submodules.sh
-# Use same order as create-retroarch-default-config.py
+# Use same order as create-retroarch-default-config.py (alphabetical by configuration name).
 echo "Creating RetroArch stuff directories..."
-mkdir -p ${PATH_RETROARCH_STUFF}/system/             # Option system_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/downloads/          # Option core_assets_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/assets/             # Option assets_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/audio_filters/      # Option audio_filter_dir
+mkdir -p ${PATH_RETROARCH_STUFF}/cache/              # Option cache_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/cht/     # Option cheat_database_path
+mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/rdb/     # Option content_database_path
+                                                     # Option content_history_dir
+mkdir -p ${PATH_RETROARCH_STUFF}/downloads/          # Option core_assets_directory
+                                                     # Option core_options_path
+mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/cursors/ # Option cursor_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/wallpapers/         # Option dynamic_wallpapers_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/thumbnails/         # Option thumbnails_directory
-                                                     # Option rgui_browser_directory, ROMs path
-mkdir -p ${PATH_RETROARCH_STUFF}/configurations/     # Option rgui_config_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/input_remappings/   # Option input_remapping_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/joypad_autoconfig/  # Option joypad_autoconfig_dir
 mkdir -p ${PATH_LIBRETRO}                            # Option libretro_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/info/               # Option libretro_info_path
-mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/rdb/     # Option content_database_path
-mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/cursors/ # Option cursor_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/libretrodb/cht/     # Option cheat_database_path
-mkdir -p ${PATH_RETROARCH_STUFF}/video_filters/      # Option video_filter_dir
-mkdir -p ${PATH_RETROARCH_STUFF}/audio_filters/      # Option audio_filter_dir
-mkdir -p ${PATH_RETROARCH_STUFF}/shaders_cg/         # Option video_shader_dir
-mkdir -p ${PATH_RETROARCH_STUFF}/recording_output/   # Option recording_output_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/recording_config/   # Option recording_config_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/logs/               # Option log_dir
 mkdir -p ${PATH_RETROARCH_STUFF}/overlays/           # Option overlay_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/screenshots/        # Option screenshot_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/joypad_autoconfig/  # Option joypad_autoconfig_dir
-mkdir -p ${PATH_RETROARCH_STUFF}/input_remappings/   # Option input_remapping_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/playlists/          # Option playlist_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/recording_config/   # Option recording_config_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/recording_output/   # Option recording_output_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/resampler/          # Option resampler_directory
+                                                     # Option rgui_browser_directory (ROMs path)
+mkdir -p ${PATH_RETROARCH_STUFF}/configurations/     # Option rgui_config_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/runtime_log/        # Option runtime_log_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/savefiles/          # Option savefile_directory
 mkdir -p ${PATH_RETROARCH_STUFF}/savestates/         # Option savestate_directory
-mkdir -p ${PATH_RETROARCH_STUFF}/cache/              # Option cache_directory
-
-# --- These directories are not in 'Settings' -- 'Directory' --- in RGUI ---
-mkdir -p ${PATH_RETROARCH_STUFF}/resampler/          # Option resampler_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/screenshots/        # Option screenshot_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/system/             # Option system_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/thumbnails/         # Option thumbnails_directory
+mkdir -p ${PATH_RETROARCH_STUFF}/video_filters/      # Option video_filter_dir
+                                                     # Option video_font_path
+mkdir -p ${PATH_RETROARCH_STUFF}/shaders_cg/         # Option shaders_cg
 
 # --- Copy cores ---
 # Clean the cores before copying.

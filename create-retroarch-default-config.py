@@ -87,92 +87,122 @@ if os.path.isfile(conf_dest_path):
 print(">>> Copying Retroarch default config file...")
 shutil.copyfile(conf_source_path, conf_dest_path)
 
-# --- Edit paths on the order they appear in RGUI 'Settings' -- 'Directory' ---
+# --- Edit paths on the order they appear in RGUI 'Settings', 'Directory' ------------------------
 print(">>> Editing Retroarch configuration file...")
-# Make sure these paths match the directory created in install-retroarch.
-# To have a look at orphan directories in retroarch.cfg:
-#    $ cat retroarch.cfg | grep directory
-#    $ cat retroarch.cfg | grep path
-# There is a bug in Retroarch, some directories end in _path (for files) instead of _directory.
-# Named "System/BIOS" in Retroarch GUI
-edit_option(conf_dest_path, 'system_directory',             os.path.join(retroarch_stuff_dir, 'system/'))
-# Named "Downloads"
-edit_option(conf_dest_path, 'core_assets_directory',        os.path.join(retroarch_stuff_dir, 'downloads/'))
-edit_option(conf_dest_path, 'assets_directory',             os.path.join(retroarch_stuff_dir, 'assets/'))
+# * Make sure these paths match the directory created in install-retroarch.
+# * To have a look at orphan directories in retroarch.cfg:
+#   $ cat retroarch.cfg | grep dir
+#   $ cat retroarch.cfg | grep path
+# * There is a bug in Retroarch, some directories end in _path (for files) instead of _directory.
+#   Also, recently some options end in _dir and not the traditional _directory.
+# * Options in retroarch.cfg are sorted alphabetically. Here also use alphabetical order.
+#
+edit_option(conf_dest_path, 'assets_directory', os.path.join(retroarch_stuff_dir, 'assets/'))
+edit_option(conf_dest_path, 'audio_filter_dir', os.path.join(retroarch_stuff_dir, 'audio_filters/'))
+# edit_option(conf_dest_path, 'bundle_assets_dst_path', os.path.join(retroarch_stuff_dir, 'nodir/'))
+# edit_option(conf_dest_path, 'bundle_assets_dst_path_subdir', os.path.join(retroarch_stuff_dir, 'nodir/'))
+# edit_option(conf_dest_path, 'bundle_assets_src_path', os.path.join(retroarch_stuff_dir, 'nodir/'))
+edit_option(conf_dest_path, 'cache_directory', os.path.join(retroarch_stuff_dir, 'cache/'))
+edit_option(conf_dest_path, 'cheat_database_path', os.path.join(retroarch_stuff_dir, 'libretrodb/cht/'))
+edit_option(conf_dest_path, 'content_database_path', os.path.join(retroarch_stuff_dir, 'libretrodb/rdb/'))
+edit_option(conf_dest_path, 'content_favorites_path', os.path.join(retroarch_stuff_dir, 'content_favorites.lpl'))
+# edit_option(conf_dest_path, 'content_history_dir', os.path.join(retroarch_stuff_dir, 'nodir/'))
+edit_option(conf_dest_path, 'content_history_path', os.path.join(retroarch_stuff_dir, 'content_history.lpl'))
+edit_option(conf_dest_path, 'content_image_history_path', os.path.join(retroarch_stuff_dir, 'content_image_history.lpl'))
+edit_option(conf_dest_path, 'content_music_history_path', os.path.join(retroarch_stuff_dir, 'content_music_history.lpl'))
+edit_option(conf_dest_path, 'content_video_history_path', os.path.join(retroarch_stuff_dir, 'content_video_history.lpl'))
+# Named "Downloads" in RA GUI.
+edit_option(conf_dest_path, 'core_assets_directory', os.path.join(retroarch_stuff_dir, 'downloads/'))
+# edit_option(conf_dest_path, 'core_options_path', os.path.join(retroarch_stuff_dir, 'nodir/'))
+edit_option(conf_dest_path, 'cursor_directory', os.path.join(retroarch_stuff_dir, 'libretrodb/cursors/'))
 # Named "Dynamic Backgrounds"
 edit_option(conf_dest_path, 'dynamic_wallpapers_directory', os.path.join(retroarch_stuff_dir, 'wallpapers/'))
-edit_option(conf_dest_path, 'thumbnails_directory',         os.path.join(retroarch_stuff_dir, 'thumbnails/'))
-# Named File Browser (default ROMs directory)
-edit_option(conf_dest_path, 'rgui_browser_directory',       os.path.join(ROMs_dir))
-# Named Config
-edit_option(conf_dest_path, 'rgui_config_directory',        os.path.join(retroarch_stuff_dir, 'configurations/'))
-# Named Core. Apparently ':/' means '/home/user_name/bin/'
-# edit_option(conf_dest_path, 'libretro_directory',           os.path.join(libretro_dir))
-edit_option(conf_dest_path, 'libretro_directory',           ':/libretro/')
-# Named "Core Info" in Retroarch GUI.
-edit_option(conf_dest_path, 'libretro_info_path',           os.path.join(retroarch_stuff_dir, 'info/'))
-edit_option(conf_dest_path, 'content_database_path',        os.path.join(retroarch_stuff_dir, 'libretrodb/rdb/'))
-edit_option(conf_dest_path, 'cursor_directory',             os.path.join(retroarch_stuff_dir, 'libretrodb/cursors/'))
-edit_option(conf_dest_path, 'cheat_database_path',          os.path.join(retroarch_stuff_dir, 'libretrodb/cht/'))
-edit_option(conf_dest_path, 'video_filter_dir',             os.path.join(retroarch_stuff_dir, 'video_filters/'))
-edit_option(conf_dest_path, 'audio_filter_dir',             os.path.join(retroarch_stuff_dir, 'audio_filters/'))
-edit_option(conf_dest_path, 'video_shader_dir',             os.path.join(retroarch_stuff_dir, 'shaders_cg/'))
-edit_option(conf_dest_path, 'recording_output_directory',   os.path.join(retroarch_stuff_dir, 'recording_output/'))
-edit_option(conf_dest_path, 'recording_config_directory',   os.path.join(retroarch_stuff_dir, 'recording_config/'))
-edit_option(conf_dest_path, 'overlay_directory',            os.path.join(retroarch_stuff_dir, 'overlays/'))
-edit_option(conf_dest_path, 'screenshot_directory',         os.path.join(retroarch_stuff_dir, 'screenshots/'))
+edit_option(conf_dest_path, 'input_remapping_directory', os.path.join(retroarch_stuff_dir, 'input_remappings/'))
 # Named "Input Autoconfig"
-edit_option(conf_dest_path, 'joypad_autoconfig_dir',        os.path.join(retroarch_stuff_dir, 'joypad_autoconfig/'))
-edit_option(conf_dest_path, 'input_remapping_directory',    os.path.join(retroarch_stuff_dir, 'input_remappings/'))
-edit_option(conf_dest_path, 'playlist_directory',           os.path.join(retroarch_stuff_dir, 'playlists/'))
-edit_option(conf_dest_path, 'savefile_directory',           os.path.join(retroarch_stuff_dir, 'savefiles/'))
-edit_option(conf_dest_path, 'savestate_directory',          os.path.join(retroarch_stuff_dir, 'savestates/'))
-edit_option(conf_dest_path, 'cache_directory',              os.path.join(retroarch_stuff_dir, 'cache/'))
+edit_option(conf_dest_path, 'joypad_autoconfig_dir', os.path.join(retroarch_stuff_dir, 'joypad_autoconfig/'))
+# Named Core. Apparently ':/' means '/home/user_name/bin/'
+edit_option(conf_dest_path, 'libretro_directory', ':/libretro/')
+# Named "Core Info" in Retroarch GUI.
+edit_option(conf_dest_path, 'libretro_info_path', os.path.join(retroarch_stuff_dir, 'info/'))
 
-# --- These directories are not in RGUI menu 'Settings' -- 'Directory' ---
-# edit_option(conf_dest_path, 'resampler_directory',           os.path.join(retroarch_stuff_dir, 'nodir/'))
-# edit_option(conf_dest_path, 'core_options_path',             os.path.join(retroarch_stuff_dir, 'nodir/'))
-# edit_option(conf_dest_path, 'bundle_assets_src_path',        os.path.join(retroarch_stuff_dir, 'nodir/'))
-# edit_option(conf_dest_path, 'bundle_assets_dst_path',        os.path.join(retroarch_stuff_dir, 'nodir/'))
-# edit_option(conf_dest_path, 'bundle_assets_dst_path_subdir', os.path.join(retroarch_stuff_dir, 'nodir/'))
+edit_option(conf_dest_path, 'log_dir', os.path.join(retroarch_stuff_dir, 'logs/'))
+edit_option(conf_dest_path, 'overlay_directory', os.path.join(retroarch_stuff_dir, 'overlays/'))
+edit_option(conf_dest_path, 'playlist_directory', os.path.join(retroarch_stuff_dir, 'playlists/'))
+edit_option(conf_dest_path, 'recording_config_directory', os.path.join(retroarch_stuff_dir, 'recording_config/'))
+edit_option(conf_dest_path, 'recording_output_directory', os.path.join(retroarch_stuff_dir, 'recording_output/'))
+edit_option(conf_dest_path, 'resampler_directory', os.path.join(retroarch_stuff_dir, 'nodir/'))
+# Named File Browser (default ROMs directory)
+edit_option(conf_dest_path, 'rgui_browser_directory', os.path.join(ROMs_dir))
+# Named Config
+edit_option(conf_dest_path, 'rgui_config_directory', os.path.join(retroarch_stuff_dir, 'configurations/'))
+edit_option(conf_dest_path, 'runtime_log_directory', os.path.join(retroarch_stuff_dir, 'runtime_log/'))
+edit_option(conf_dest_path, 'savefile_directory', os.path.join(retroarch_stuff_dir, 'savefiles/'))
+edit_option(conf_dest_path, 'savestate_directory', os.path.join(retroarch_stuff_dir, 'savestates/'))
+edit_option(conf_dest_path, 'screenshot_directory', os.path.join(retroarch_stuff_dir, 'screenshots/'))
+# Named "System/BIOS" in RA GUI
+edit_option(conf_dest_path, 'system_directory', os.path.join(retroarch_stuff_dir, 'system/'))
+edit_option(conf_dest_path, 'thumbnails_directory', os.path.join(retroarch_stuff_dir, 'thumbnails/'))
+edit_option(conf_dest_path, 'video_filter_dir', os.path.join(retroarch_stuff_dir, 'video_filters/'))
+edit_option(conf_dest_path, 'video_font_path', os.path.join(retroarch_stuff_dir, ''))
+edit_option(conf_dest_path, 'video_shader_dir', os.path.join(retroarch_stuff_dir, 'shaders_cg/'))
 
-# --- Other options -----------------------------------------------------------
-# For ideas have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
+# --- Other options ------------------------------------------------------------------------------
+# * For ideas have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
+# * Menu drivers: rgui, xmb.
+
+# Menu driver
 edit_option(conf_dest_path, 'menu_driver', 'xmb')
-edit_option(conf_dest_path, 'rgui_show_start_screen', 'false')
-edit_option(conf_dest_path, 'video_font_path', os.path.join(retroarch_stuff_dir, 'assets/xmb/monochrome/font.ttf'))
-edit_option(conf_dest_path, 'video_font_size', '22.000000')
+
+# Video driver, options: gl, vulkan.
+edit_option(conf_dest_path, 'video_driver', 'gl')
+
+# Sound driver. Default is pulse.
+edit_option(conf_dest_path, 'audio_driver', 'sdl2')
+
+# --- RGUI specific options ---
+# edit_option(conf_dest_path, 'rgui_show_start_screen', 'true')
+
+# --- XMB specific options ---
+edit_option(conf_dest_path, 'xmb_scale_factor', '80')
+edit_option(conf_dest_path, 'xmb_menu_color_theme', '8')
+
 edit_option(conf_dest_path, 'input_max_users', '2')
 edit_option(conf_dest_path, 'input_autodetect_enable', 'true')
-# edit_option(conf_dest_path, 'video_fullscreen', 'true')
-edit_option(conf_dest_path, 'video_aspect_ratio_auto', 'true')
-edit_option(conf_dest_path, 'video_smooth', 'false')
-edit_option(conf_dest_path, 'video_threaded', 'true')
-edit_option(conf_dest_path, 'video_gpu_screenshot', 'false')
-edit_option(conf_dest_path, 'audio_driver', 'sdl2')
 edit_option(conf_dest_path, 'input_axis_threshold', '0.050000')
 edit_option(conf_dest_path, 'input_overlay_show_physical_inputs', 'true')
+
+# Font of the widgets/on-screen messages. xmb_scale_factor seems to also affect this.
+edit_option(conf_dest_path, 'video_font_size', '30.000000')
+edit_option(conf_dest_path, 'video_fullscreen', 'false')
+edit_option(conf_dest_path, 'video_aspect_ratio_auto', 'true')
+edit_option(conf_dest_path, 'video_smooth', 'false')
+# Scaling in windowed mode
+edit_option(conf_dest_path, 'video_scale', '4.000000')
+# This improves performance at the cost of latency and stuttering. Only use if full speed
+# cannot be achieved otherwise.
+edit_option(conf_dest_path, 'video_threaded', 'false')
 edit_option(conf_dest_path, 'video_message_pos_x', '0.010000')
 edit_option(conf_dest_path, 'video_message_pos_y', '0.969999')
 
-# Separate savestates and savefiles per-core. Important because different cores can be used to
-# run the same ROM.
+# Separate savestates and savefiles per-core. Important because different cores can
+# be used to run the same ROM and there could be filename conflict (and overwriting).
 edit_option(conf_dest_path, 'sort_savefiles_enable', 'true')
 edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 
-# --- Custom options ---
 # Keep old keys Z and X for nagivating Retroarch GUI
 edit_option(conf_dest_path, 'menu_unified_controls', 'true')
-edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
-edit_option(conf_dest_path, 'xmb_menu_color_theme', '8')
-edit_option(conf_dest_path, 'menu_shader_pipeline', '3')
+edit_option(conf_dest_path, 'menu_show_advanced_settings', 'true')
+edit_option(conf_dest_path, 'menu_shader_pipeline', '1')
+edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 
-# Options not in 1.7.4
-# edit_option(conf_dest_path, 'xmb_show_favorites', 'false')
-# edit_option(conf_dest_path, 'xmb_show_images', 'false')
-# edit_option(conf_dest_path, 'xmb_show_music', 'false')
+# --- Development options. Never user for release ------------------------------------------------
+edit_option(conf_dest_path, 'fps_show', 'true')
+edit_option(conf_dest_path, 'memory_show', 'true')
+edit_option(conf_dest_path, 'statistics_show', 'true')
+edit_option(conf_dest_path, 'pause_nonactive', 'false')
 
+# --- Input options ------------------------------------------------------------------------------
 # Use joypad autoconfigs to configure all gamepads.
 # Patch joypad autoconfigs if necessary or make a pull request for newer path.
 # In gamepads with a GUIDE button use that button to toggle the Retroarch GUI.
@@ -186,6 +216,6 @@ edit_option(conf_dest_path, 'menu_shader_pipeline', '3')
 # R3 opens/closes Retroarch menu
 # edit_option(conf_dest_path, 'input_menu_toggle_btn', '10')
 
-# --- Copy newly edited retroarch.cfg into retroarch_initial.cfg as a backup ---
+# --- Copy newly edited retroarch.cfg into retroarch_initial.cfg as a backup ---------------------
 print(">>> Backing up initial configuration file...")
 shutil.copyfile(conf_dest_path, conf_dest_initial_path)
