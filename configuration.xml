@@ -1,13 +1,6 @@
 <!--
     Configuration for Retroarch compilation utilities.
-    Put second-level tags into a dictionary.
-    
-    Retroarch 1.7.5 works OK with Intel videocards.
-    
-    Retroarch 1.7.6 has trouble with Intel videocards (OpenGL cores).
-    
-    Retroarch 1.7.7 has trouble with Intel videocards (OpenGL cores).
 -->
 <Configuration>
-    <Version>1.7.5</Version>
+    <Version>1.7.7</Version>
 </Configuration>
