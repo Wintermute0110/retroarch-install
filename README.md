@@ -231,6 +231,25 @@ EndSection
 > open-source drivers on linux are kinda crappy, setting DRI to 2 in your xorg configuration
 > files is also generally a good fix for this kind of issue.
 
+### Testing Retroarch 1.7.7 with the intel driver in Ubuntu
+
+First, create a file `/etc/X11/xorg.conf` for the X server to use the **intel** driver and
+not the **modesetting** driver. In this test Kodi uses the default video settings.
+The reason to use the intel driver is that it seems to have better performance than
+the modesetting driver (at least when Retroarch is running in the foreground and Kodi
+in the background).
+
+| DRI | TripleBuffer | TearFree | Result                              |
+|-----|--------------|----------|-------------------------------------|
+| "3" | false        | false    | Seems to work OK, performance *---- |
+| "3" | false        | true     | Seems to work OK, performance ***-- |
+| "3" | true         | false    | Seems to work OK, performance ***-- |
+| "3" | true         | true     | Seems to work OK, performance ****- |
+| "2" | false        | false    | Seems to work OK, performance **--- |
+| "2" | false        | true     | Seems to work OK, performance ***-- |
+| "2" | true         | false    | Fails.                              |
+| "2" | true         | true     | Seems to work OK, performance ***-- |
+
 ### Does Retroarch 1.7.7 works on Debian using RGUI and no xorg.conf?
 
 Interesting: in Debian, if file `xorg.conf` does not exist then Xorg uses
