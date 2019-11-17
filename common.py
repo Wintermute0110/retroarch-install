@@ -18,7 +18,7 @@ def read_config_file(filename):
         xml_text = category_element.text if category_element.text is not None else ''
         configuration[xml_tag] = xml_text
         if __debug_xml_parser: print('"{}" : "{}"'.format(xml_tag, xml_text))
-        
+
     return configuration
 
 def run_command(arg_list):
