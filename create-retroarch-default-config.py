@@ -189,7 +189,7 @@ edit_option(conf_dest_path, 'sort_savefiles_enable', 'true')
 edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 
 # Keep old keys Z and X for nagivating Retroarch GUI
-edit_option(conf_dest_path, 'menu_scale_factor', '1.000000')
+edit_option(conf_dest_path, 'menu_scale_factor', '0.850000')
 edit_option(conf_dest_path, 'menu_unified_controls', 'true')
 edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
 edit_option(conf_dest_path, 'menu_show_advanced_settings', 'true')
