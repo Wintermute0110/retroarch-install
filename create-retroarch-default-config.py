@@ -163,7 +163,6 @@ edit_option(conf_dest_path, 'audio_driver', 'sdl2')
 # edit_option(conf_dest_path, 'rgui_show_start_screen', 'true')
 
 # --- XMB specific options ---
-edit_option(conf_dest_path, 'xmb_scale_factor', '80')
 edit_option(conf_dest_path, 'xmb_menu_color_theme', '8')
 
 edit_option(conf_dest_path, 'input_max_users', '2')
@@ -190,15 +189,22 @@ edit_option(conf_dest_path, 'sort_savefiles_enable', 'true')
 edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 
 # Keep old keys Z and X for nagivating Retroarch GUI
+edit_option(conf_dest_path, 'menu_scale_factor', '1.000000')
 edit_option(conf_dest_path, 'menu_unified_controls', 'true')
 edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
 edit_option(conf_dest_path, 'menu_show_advanced_settings', 'true')
 edit_option(conf_dest_path, 'menu_shader_pipeline', '1')
 edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 
+# Configure displayed tabs
+edit_option(conf_dest_path, 'content_show_images', 'false')
+edit_option(conf_dest_path, 'content_show_music', 'false')
+edit_option(conf_dest_path, 'content_show_netplay', 'false')
+edit_option(conf_dest_path, 'content_show_video', 'false')
+
 # --- Development options. Never user for release ------------------------------------------------
 edit_option(conf_dest_path, 'fps_show', 'true')
-edit_option(conf_dest_path, 'memory_show', 'true')
+# edit_option(conf_dest_path, 'memory_show', 'true')
 # edit_option(conf_dest_path, 'statistics_show', 'true')
 edit_option(conf_dest_path, 'pause_nonactive', 'false')
 
