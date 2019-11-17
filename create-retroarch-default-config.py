@@ -153,10 +153,10 @@ edit_option(conf_dest_path, 'video_shader_dir', os.path.join(retroarch_stuff_dir
 # Menu driver
 edit_option(conf_dest_path, 'menu_driver', 'xmb')
 
-# Video driver, options: gl, vulkan.
+# Video driver, options: gl, glcore, gl1, vulkan, sdl2, xvideo, caca, null.
 edit_option(conf_dest_path, 'video_driver', 'gl')
 
-# Sound driver. Default is pulse.
+# Sound driver. Default is alsa, alsathread, tinyalsa, oss, openal, sdl2, pulse, null.
 edit_option(conf_dest_path, 'audio_driver', 'sdl2')
 
 # --- RGUI specific options ---
