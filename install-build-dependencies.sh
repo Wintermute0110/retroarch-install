@@ -2,20 +2,22 @@
 #
 # Officially recomended in RetroArcg github wiki
 #
-apt-get install \
-    build-essential \
-    make \
-    git \
+apt install \
     curl \
+    build-essential \
+    git \
+    make \
+    nvidia-cg-toolkit \
     pkg-config \
-    nvidia-cg-toolkit
+    wayland-protocols
 
-apt-get install \
+# Deprecated
+# libresvg-dev
+apt install \
     freeglut3-dev \
     mesa-common-dev \
     libavcodec-dev \
     libavdevice-dev \
-    libresvg-dev \
     libgbm-dev \
     libgl1-mesa-dev \
     libgles2-mesa-dev \
