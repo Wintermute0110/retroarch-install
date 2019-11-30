@@ -7,6 +7,7 @@ of Retroarch. It has been tested in Debian and Ubuntu.
 * **[Cloning this repository](#cloning-this-repository)**
 * **[Preparing Retroarch source code](#Preparing-Retroarch-source-code)**
 * **[Compiling Retroarch](#Compiling-Retroarch)**
+* **[Additional repositories](#Additional-repositories)**
 * **[Retroarch installation and configuration](#Retroarch-installation-and-configuration)**
 * **[Updating Retroarch](#Updating-Retroarch)**
 * **[Post installation notes](#Post-installation-notes)**
@@ -127,6 +128,26 @@ To compile Retroarch, go to the directory  `~/Retroarch-Install/` and execute
 (OPTIONAL) If you didn't disable the Libretro cores, execute `./compile-libretro.sh` to compile
 all the cores you selected to download.
 
+## Additional repositories
+
+Some cores require additional steps if you want to use them.
+
+### PPSSPP
+
+If you want to execute the **ppsspp** core to run PSP games you need to clone an additional
+repository. This will create a directory named `ppsspp`.
+```
+./clone-ppsspp.py
+```
+
+The runtime files from the `ppsspp` directory will be copied by the `install-retroarch.sh` script
+into the Retroarch system directory.
+
+### PSP fonts
+
+PPSSPP includes a set of custom fonts which are different from the PSP default fonts. If
+you happen to have the PSP fonts place them in the `psp-fonts` directory and the 
+`install-retroarch.sh` script will copy them to the appropiate place in the system directory.
 
 ## Retroarch installation and configuration
 
@@ -173,6 +194,13 @@ nano create-retroarch-default-config.py
 ```
 
 `nano` is the editor I use but feel free to use any other one such as `vim` or `emacs`.
+
+### Optional stuff
+
+Execute this optionally before upgrading Retroarch.
+```
+./update-ppsspp.py
+```
 
 ## Post installation notes
 
