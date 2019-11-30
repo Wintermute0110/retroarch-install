@@ -180,6 +180,9 @@ To see the changes between both files, go to `~/.config/retroarch/` and execute
 
 ## Updating Retroarch
 
+It is recommended that you recompile Retroarch when you upgrade your system. This is
+specially important if you update the Mesa/OpenGL libraries to avoid problems.
+
 Go to directory `~/Retroarch-Install/` and execute the following steps:
 
 ```
