@@ -26,4 +26,5 @@ apt install \
     libsdl2-image-dev \
     libusb-dev \
     libvulkan-dev \
+    libx11-xcb-dev \
     libxml2-dev
