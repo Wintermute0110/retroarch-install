@@ -72,19 +72,19 @@ cp ./libretro-super/retroarch/retroarch ${PATH_RETROARCH_BIN}
 # NOTE submodules in git does not have the .git directory.
 echo "Installing shaders_cg ..."
 # cp -r ./libretro-super/retroarch/media/shaders_cg/* ${PATH_RETROARCH_STUFF}/shaders_cg/
-rsync -a ./libretro-super/retroarch/media/shaders_cg/ ${PATH_RETROARCH_STUFF}/shaders_cg/
+rsync -a --exclude '.git' --delete-excluded ./libretro-super/retroarch/media/shaders_cg/ ${PATH_RETROARCH_STUFF}/shaders_cg/
 
 echo "Installing overlays ..."
-rsync -a ./libretro-super/retroarch/media/overlays/ ${PATH_RETROARCH_STUFF}/overlays/
+rsync -a --exclude '.git' --delete-excluded ./libretro-super/retroarch/media/overlays/ ${PATH_RETROARCH_STUFF}/overlays/
 
 echo "Installing assets ..."
-rsync -a ./libretro-super/retroarch/media/assets/ ${PATH_RETROARCH_STUFF}/assets/
+rsync -a --exclude '.git' --delete-excluded ./libretro-super/retroarch/media/assets/ ${PATH_RETROARCH_STUFF}/assets/
 
 echo "Installing joystick autoconfig ..."
-rsync -a ./libretro-super/retroarch/media/autoconfig/ ${PATH_RETROARCH_STUFF}/joypad_autoconfig/
+rsync -a --exclude '.git' --delete-excluded ./libretro-super/retroarch/media/autoconfig/ ${PATH_RETROARCH_STUFF}/joypad_autoconfig/
 
 echo "Installing libretrodb ..."
-rsync -a ./libretro-super/retroarch/media/libretrodb/ ${PATH_RETROARCH_STUFF}/libretrodb/
+rsync -a --exclude '.git' --delete-excluded ./libretro-super/retroarch/media/libretrodb/ ${PATH_RETROARCH_STUFF}/libretrodb/
 
 # --- Installing core specific stuff ---
 # >> See http://wiki.libretro.com/index.php?title=PPSSPP
