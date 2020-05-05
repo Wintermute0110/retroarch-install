@@ -174,11 +174,8 @@ edit_option(conf_dest_path, 'video_font_size', '30.000000')
 edit_option(conf_dest_path, 'video_fullscreen', 'false')
 edit_option(conf_dest_path, 'video_aspect_ratio_auto', 'true')
 edit_option(conf_dest_path, 'video_smooth', 'false')
-# Scaling in windowed mode
+# Scaling in windowed mode.
 edit_option(conf_dest_path, 'video_scale', '4.000000')
-# This improves performance at the cost of latency and stuttering. Only use if full speed
-# cannot be achieved otherwise.
-edit_option(conf_dest_path, 'video_threaded', 'false')
 edit_option(conf_dest_path, 'video_message_pos_x', '0.010000')
 edit_option(conf_dest_path, 'video_message_pos_y', '0.969999')
 
@@ -187,24 +184,38 @@ edit_option(conf_dest_path, 'video_message_pos_y', '0.969999')
 edit_option(conf_dest_path, 'sort_savefiles_enable', 'true')
 edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 
+edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 # edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
 edit_option(conf_dest_path, 'menu_scale_factor', '0.850000')
 edit_option(conf_dest_path, 'menu_unified_controls', 'true')
 edit_option(conf_dest_path, 'menu_show_advanced_settings', 'true')
 edit_option(conf_dest_path, 'menu_shader_pipeline', '1')
-edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 
-# Configure displayed tabs
+# Configure displayed tabs in main menu.
 edit_option(conf_dest_path, 'content_show_images', 'false')
 edit_option(conf_dest_path, 'content_show_music', 'false')
 edit_option(conf_dest_path, 'content_show_netplay', 'false')
 edit_option(conf_dest_path, 'content_show_video', 'false')
 
+# Configure menu options in main menu.
+edit_option(conf_dest_path, 'desktop_menu_enable', 'false')
+
+# Misc options.
+edit_option(conf_dest_path, 'pause_nonactive', 'false')
+edit_option(conf_dest_path, 'check_firmware_before_loading', 'true')
+# Settings -> Video -> Threaded video (default false)
+# This improves performance at the cost of latency and stuttering.
+# Only use if full speed cannot be achieved otherwise.
+edit_option(conf_dest_path, 'video_threaded', 'false')
+# Settings -> Core -> Hardware shared context (default false)
+edit_option(conf_dest_path, 'video_shared_context', 'false')
+# Settings -> Core -> Allow cores to switch the video driver (default true)
+edit_option(conf_dest_path, 'driver_switch_enable', 'true')
+
 # --- Development options. Never user for release ------------------------------------------------
 edit_option(conf_dest_path, 'fps_show', 'true')
 # edit_option(conf_dest_path, 'memory_show', 'true')
 # edit_option(conf_dest_path, 'statistics_show', 'true')
-edit_option(conf_dest_path, 'pause_nonactive', 'false')
 
 # --- Input options ------------------------------------------------------------------------------
 # Use joypad autoconfigs to configure all gamepads.
