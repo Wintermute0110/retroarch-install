@@ -11,4 +11,5 @@ import os
 import common
 
 # --- main ---------------------------------------------------------------------------------------
-common.run_command(['git', 'clone', 'https://github.com/hrydgard/ppsspp.git'])
+# https://www.perforce.com/blog/vcs/git-beyond-basics-using-shallow-clones
+common.run_command(['git', 'clone', '--depth=1', 'https://github.com/hrydgard/ppsspp.git'])
