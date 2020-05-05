@@ -31,7 +31,7 @@ ROMs_dir = '/home/kodi/AEL-ROMs/'
 # Functions  ------------------------------------------------------------------
 def edit_option(filename, option_name, option_value):
   new_line_str = option_name + ' = "' + option_value + '"'
-  print("{0} -> '{1}'".format(option_name.ljust(34), new_line_str))
+  print("{} -> '{}'".format(option_name.ljust(34), new_line_str))
 
   # --- Open file ---
   fin = open(filename, 'rt')
@@ -42,7 +42,7 @@ def edit_option(filename, option_name, option_value):
   for line in fin:
     # Remove trailing \n for comparison
     line_stripped  = line.rstrip('\n')
-    r_pattern = '^{0} = '.format(option_name)
+    r_pattern = '^{} = '.format(option_name)
     regex_result = re.findall(r_pattern, line_stripped)
     if regex_result:
       fout.write(new_line_str + '\n')
@@ -56,7 +56,7 @@ def edit_option(filename, option_name, option_value):
 
   # --- Check for errors ---
   if not option_line_found:
-    print('Option name ''{0}'' not found. Abort.'.format(option_name))
+    print('Option name ''{}'' not found. Abort.'.format(option_name))
     sys.exit(1)
 
   # --- Rename temp file into configuration file ---
@@ -70,16 +70,16 @@ conf_dest_initial_path = os.path.expanduser(conf_dest_initial_path)
 # retroarch_stuff_dir = os.path.expanduser(retroarch_stuff_dir)
 ROMs_dir = os.path.expanduser(ROMs_dir)
 libretro_dir = os.path.expanduser(libretro_dir)
-print('conf_source_path        "{0}"'.format(conf_source_path))
-print('conf_dest_path          "{0}"'.format(conf_dest_path))
-print('conf_dest_initial_path  "{0}"'.format(conf_dest_initial_path))
-print('retroarch_stuff_dir     "{0}"'.format(retroarch_stuff_dir))
-print('ROMs_dir                "{0}"'.format(ROMs_dir))
-print('libretro_dir            "{0}"'.format(libretro_dir))
+print('conf_source_path        "{}"'.format(conf_source_path))
+print('conf_dest_path          "{}"'.format(conf_dest_path))
+print('conf_dest_initial_path  "{}"'.format(conf_dest_initial_path))
+print('retroarch_stuff_dir     "{}"'.format(retroarch_stuff_dir))
+print('ROMs_dir                "{}"'.format(ROMs_dir))
+print('libretro_dir            "{}"'.format(libretro_dir))
 
 # --- Check if config file already exists (never overwrite it) ---
 if os.path.isfile(conf_dest_path):
-  print('>>> Config file "{0}" already exists'.format(conf_dest_path))
+  print('>>> Config file "{}" already exists'.format(conf_dest_path))
   # print('>> Aborting')
   # sys.exit(1)
 
@@ -147,15 +147,11 @@ edit_option(conf_dest_path, 'video_font_path', os.path.join(retroarch_stuff_dir,
 edit_option(conf_dest_path, 'video_shader_dir', os.path.join(retroarch_stuff_dir, 'shaders_cg/'))
 
 # --- Other options ------------------------------------------------------------------------------
-# * For ideas have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
-# * Menu drivers: rgui, xmb.
-
-# Menu driver
-edit_option(conf_dest_path, 'menu_driver', 'xmb')
-
+# For ideas have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
+# Menu drivers: ozone, xmb, rgui.
+edit_option(conf_dest_path, 'menu_driver', 'ozone')
 # Video driver, options: gl, glcore, gl1, vulkan, sdl2, xvideo, caca, null.
 edit_option(conf_dest_path, 'video_driver', 'gl')
-
 # Sound driver. Default is alsa, alsathread, tinyalsa, oss, openal, sdl2, pulse, null.
 edit_option(conf_dest_path, 'audio_driver', 'sdl2')
 
@@ -163,8 +159,11 @@ edit_option(conf_dest_path, 'audio_driver', 'sdl2')
 # edit_option(conf_dest_path, 'rgui_show_start_screen', 'true')
 
 # --- XMB specific options ---
-edit_option(conf_dest_path, 'xmb_menu_color_theme', '8')
+# edit_option(conf_dest_path, 'xmb_menu_color_theme', '8')
 
+# --- Ozone specific options ---
+
+# Input options
 edit_option(conf_dest_path, 'input_max_users', '2')
 edit_option(conf_dest_path, 'input_autodetect_enable', 'true')
 edit_option(conf_dest_path, 'input_axis_threshold', '0.050000')
@@ -188,10 +187,9 @@ edit_option(conf_dest_path, 'video_message_pos_y', '0.969999')
 edit_option(conf_dest_path, 'sort_savefiles_enable', 'true')
 edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 
-# Keep old keys Z and X for nagivating Retroarch GUI
+# edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
 edit_option(conf_dest_path, 'menu_scale_factor', '0.850000')
 edit_option(conf_dest_path, 'menu_unified_controls', 'true')
-edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
 edit_option(conf_dest_path, 'menu_show_advanced_settings', 'true')
 edit_option(conf_dest_path, 'menu_shader_pipeline', '1')
 edit_option(conf_dest_path, 'all_users_control_menu', 'true')

@@ -11,7 +11,7 @@ import common
 # --- main ---------------------------------------------------------------------------------------
 configuration = common.read_config_file('configuration.xml')
 retroarch_version = 'tags/v{}'.format(configuration['Version'])
-print('>>> retroarch_version "{0}"'.format(retroarch_version))
+print('>>> retroarch_version "{}"'.format(retroarch_version))
 current_dir = os.getcwd()
 print('>>> Current Working Directory "{}"'.format(current_dir))
 
