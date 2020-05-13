@@ -10,7 +10,10 @@ import common
 
 # --- main ---------------------------------------------------------------------------------------
 configuration = common.read_config_file('configuration.xml')
-retroarch_version = 'tags/v{}'.format(configuration['Version'])
+if configuration['Version'] == 'master':
+    retroarch_version = 'master'
+else:
+    retroarch_version = 'tags/v{}'.format(configuration['Version'])
 print('>>> retroarch_version "{}"'.format(retroarch_version))
 current_dir = os.getcwd()
 print('>>> Current Working Directory "{}"'.format(current_dir))

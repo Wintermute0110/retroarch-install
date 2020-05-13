@@ -2,5 +2,8 @@
     Configuration for Retroarch compilation utilities.
 -->
 <Configuration>
-    <Version>1.8.5</Version>
+    <!-- Use a tag or branch name. 'v' will be added at the beginning of the tag name.
+         Examples: 1.8.5, 1.8.6, master
+    -->
+    <Version>master</Version>
 </Configuration>
