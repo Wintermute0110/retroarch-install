@@ -184,7 +184,8 @@ edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 
 edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 # edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
-edit_option(conf_dest_path, 'menu_scale_factor', '0.850000')
+# @1920x1080 use 0.850000 for xmb, 1.000000 for ozone.
+edit_option(conf_dest_path, 'menu_scale_factor', '1.000000')
 edit_option(conf_dest_path, 'menu_unified_controls', 'true')
 edit_option(conf_dest_path, 'menu_show_advanced_settings', 'true')
 edit_option(conf_dest_path, 'menu_shader_pipeline', '1')
@@ -194,9 +195,17 @@ edit_option(conf_dest_path, 'content_show_images', 'false')
 edit_option(conf_dest_path, 'content_show_music', 'false')
 edit_option(conf_dest_path, 'content_show_netplay', 'false')
 edit_option(conf_dest_path, 'content_show_video', 'false')
+edit_option(conf_dest_path, 'content_show_add', 'false')
 
 # Configure menu options in main menu.
+edit_option(conf_dest_path, 'menu_show_configurations', 'false')
 edit_option(conf_dest_path, 'desktop_menu_enable', 'false')
+
+# Configure displayed options in in-game quick menu.
+# edit_option(conf_dest_path, 'menu_show_latency', 'false')
+edit_option(conf_dest_path, 'menu_show_rewind', 'false')
+edit_option(conf_dest_path, 'quick_menu_show_start_recording', 'false')
+edit_option(conf_dest_path, 'quick_menu_show_start_streaming', 'false')
 
 # Misc options.
 edit_option(conf_dest_path, 'pause_nonactive', 'false')
