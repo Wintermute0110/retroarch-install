@@ -4,6 +4,7 @@
 
 # --- Python standard library --------------------------------------------------------------------
 import subprocess
+import sys
 import xml.etree.ElementTree as ET
 
 # Read the configuration XML file an return a dictionary with options.
