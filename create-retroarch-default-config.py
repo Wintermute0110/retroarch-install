@@ -20,11 +20,9 @@ configuration = common.read_config_file('configuration.xml')
 conf_source_path = '/home/kodi/Retroarch-Install/retroarch-' + configuration['Version'] + '.cfg'
 conf_dest_path = '~/.config/retroarch/retroarch.cfg'
 conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
-
 # Retroarch replaces absolute user home dirs by '~'
 retroarch_stuff_dir = '~/.retroarch/'
 libretro_dir = '/home/kodi/bin/libretro/'
-
 # Directory where you have your ROMs.
 ROMs_dir = '/home/kodi/AEL-ROMs/'
 
@@ -210,7 +208,7 @@ edit_option(conf_dest_path, 'video_threaded', 'false')
 # Settings -> Core -> Hardware shared context (default false)
 edit_option(conf_dest_path, 'video_shared_context', 'false')
 # Settings -> Core -> Allow cores to switch the video driver (default true)
-edit_option(conf_dest_path, 'driver_switch_enable', 'true')
+edit_option(conf_dest_path, 'driver_switch_enable', 'false')
 
 # --- Development options. Never user for release ------------------------------------------------
 edit_option(conf_dest_path, 'fps_show', 'true')
