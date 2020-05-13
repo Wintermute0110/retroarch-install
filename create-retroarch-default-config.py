@@ -207,7 +207,7 @@ edit_option(conf_dest_path, 'menu_show_rewind', 'false')
 edit_option(conf_dest_path, 'quick_menu_show_start_recording', 'false')
 edit_option(conf_dest_path, 'quick_menu_show_start_streaming', 'false')
 
-# Misc options.
+# --- Misc options ---
 edit_option(conf_dest_path, 'pause_nonactive', 'false')
 edit_option(conf_dest_path, 'check_firmware_before_loading', 'true')
 # Settings -> Video -> Threaded video (default false)
@@ -220,7 +220,7 @@ edit_option(conf_dest_path, 'video_shared_context', 'false')
 edit_option(conf_dest_path, 'driver_switch_enable', 'false')
 
 # --- Development options. Never user for release ------------------------------------------------
-edit_option(conf_dest_path, 'fps_show', 'true')
+# edit_option(conf_dest_path, 'fps_show', 'true')
 # edit_option(conf_dest_path, 'memory_show', 'true')
 # edit_option(conf_dest_path, 'statistics_show', 'true')
 
@@ -228,7 +228,7 @@ edit_option(conf_dest_path, 'fps_show', 'true')
 # Use joypad autoconfigs to configure all gamepads.
 # Patch joypad autoconfigs if necessary or make a pull request for newer path.
 # In gamepads with a GUIDE button use that button to toggle the Retroarch GUI.
-# In gamepads with no GUIDE button use the Retropie/Retroplayer shortcuts.
+# In gamepads with no GUIDE button use the Retropie/Kodi Retroplayer shortcuts.
 
 # --- Logitech F710 joystick, xpad option triggers as buttons OFF ---
 # Guide button closes Retroarch
