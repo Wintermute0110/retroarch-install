@@ -5,5 +5,5 @@
     <!-- Use a tag or branch name. 'v' will be added at the beginning of the tag name.
          Examples: 1.8.5, 1.8.6, master
     -->
-    <Version>master</Version>
+    <Version>1.8.7</Version>
 </Configuration>
