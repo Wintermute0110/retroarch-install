@@ -94,7 +94,6 @@ print(">>> Editing Retroarch configuration file...")
 # * There is a bug in Retroarch, some directories end in _path (for files) instead of _directory.
 #   Also, recently some options end in _dir and not the traditional _directory.
 # * Options in retroarch.cfg are sorted alphabetically. Here also use alphabetical order.
-#
 edit_option(conf_dest_path, 'assets_directory', os.path.join(retroarch_stuff_dir, 'assets/'))
 edit_option(conf_dest_path, 'audio_filter_dir', os.path.join(retroarch_stuff_dir, 'audio_filters/'))
 # edit_option(conf_dest_path, 'bundle_assets_dst_path', os.path.join(retroarch_stuff_dir, 'nodir/'))
@@ -122,7 +121,6 @@ edit_option(conf_dest_path, 'joypad_autoconfig_dir', os.path.join(retroarch_stuf
 edit_option(conf_dest_path, 'libretro_directory', ':/libretro/')
 # Named "Core Info" in Retroarch GUI.
 edit_option(conf_dest_path, 'libretro_info_path', os.path.join(retroarch_stuff_dir, 'info/'))
-
 edit_option(conf_dest_path, 'log_dir', os.path.join(retroarch_stuff_dir, 'logs/'))
 edit_option(conf_dest_path, 'overlay_directory', os.path.join(retroarch_stuff_dir, 'overlays/'))
 edit_option(conf_dest_path, 'playlist_directory', os.path.join(retroarch_stuff_dir, 'playlists/'))
@@ -169,7 +167,7 @@ edit_option(conf_dest_path, 'input_overlay_show_physical_inputs', 'true')
 
 # Font of the widgets/on-screen messages. xmb_scale_factor seems to also affect this.
 edit_option(conf_dest_path, 'video_font_size', '30.000000')
-edit_option(conf_dest_path, 'video_fullscreen', 'false')
+edit_option(conf_dest_path, 'video_fullscreen', 'true')
 edit_option(conf_dest_path, 'video_aspect_ratio_auto', 'true')
 edit_option(conf_dest_path, 'video_smooth', 'false')
 # Scaling in windowed mode.
@@ -220,6 +218,8 @@ edit_option(conf_dest_path, 'video_shared_context', 'false')
 edit_option(conf_dest_path, 'driver_switch_enable', 'false')
 
 # --- Development options. Never user for release ------------------------------------------------
+# New option in 1.8.8
+# edit_option(conf_dest_path, 'core_updater_show_experimental_cores', 'true')
 # edit_option(conf_dest_path, 'fps_show', 'true')
 # edit_option(conf_dest_path, 'memory_show', 'true')
 # edit_option(conf_dest_path, 'statistics_show', 'true')
