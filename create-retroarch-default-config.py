@@ -19,7 +19,7 @@ configuration = common.read_config_file('configuration.xml')
 # Configure paths to match your system (you can use ~ or absolute paths)
 conf_source_path = '/home/kodi/Retroarch-Install/retroarch-' + configuration['Version'] + '.cfg'
 conf_dest_path = '~/.config/retroarch/retroarch.cfg'
-conf_dest_initial_path = '~/.config/retroarch/retroarch_initial.cfg'
+conf_dest_initial_path = '~/.config/retroarch/retroarch.initial.cfg'
 # Retroarch replaces absolute user home dirs by '~'
 retroarch_stuff_dir = '~/.retroarch/'
 libretro_dir = '/home/kodi/bin/libretro/'
@@ -180,7 +180,8 @@ edit_option(conf_dest_path, 'video_message_pos_y', '0.969999')
 edit_option(conf_dest_path, 'sort_savefiles_enable', 'true')
 edit_option(conf_dest_path, 'sort_savestates_enable', 'true')
 
-edit_option(conf_dest_path, 'all_users_control_menu', 'true')
+# Not available in 1.8.9
+# edit_option(conf_dest_path, 'all_users_control_menu', 'true')
 # edit_option(conf_dest_path, 'menu_swap_ok_cancel_buttons', 'true')
 # @1920x1080 use 0.850000 for xmb, 1.000000 for ozone.
 edit_option(conf_dest_path, 'menu_scale_factor', '1.000000')
