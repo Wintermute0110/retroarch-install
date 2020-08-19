@@ -195,6 +195,7 @@ edit_option(conf_dest_path, 'content_show_music', 'false')
 edit_option(conf_dest_path, 'content_show_netplay', 'false')
 edit_option(conf_dest_path, 'content_show_video', 'false')
 edit_option(conf_dest_path, 'content_show_add', 'false')
+edit_option(conf_dest_path, 'content_show_explore', 'false') # New in 1.9.0
 
 # Configure menu options in main menu.
 edit_option(conf_dest_path, 'menu_show_configurations', 'false')
@@ -214,13 +215,13 @@ edit_option(conf_dest_path, 'check_firmware_before_loading', 'true')
 # Only use if full speed cannot be achieved otherwise.
 edit_option(conf_dest_path, 'video_threaded', 'false')
 # Settings -> Core -> Hardware shared context (default false)
-edit_option(conf_dest_path, 'video_shared_context', 'false')
+edit_option(conf_dest_path, 'video_shared_context', 'true')
 # Settings -> Core -> Allow cores to switch the video driver (default true)
 edit_option(conf_dest_path, 'driver_switch_enable', 'false')
+edit_option(conf_dest_path, 'fps_update_interval', '60')
 
 # --- Development options. Never user for release ------------------------------------------------
-# New option in 1.8.8
-# edit_option(conf_dest_path, 'core_updater_show_experimental_cores', 'true')
+# edit_option(conf_dest_path, 'core_updater_show_experimental_cores', 'true') # New in 1.8.8
 # edit_option(conf_dest_path, 'fps_show', 'true')
 # edit_option(conf_dest_path, 'memory_show', 'true')
 # edit_option(conf_dest_path, 'statistics_show', 'true')
@@ -231,7 +232,7 @@ edit_option(conf_dest_path, 'driver_switch_enable', 'false')
 # In gamepads with a GUIDE button use that button to toggle the Retroarch GUI.
 # In gamepads with no GUIDE button use the Retropie/Kodi Retroplayer shortcuts.
 
-# --- Logitech F710 joystick, xpad option triggers as buttons OFF ---
+# --- Logitech F710 joystick ---
 # Guide button closes Retroarch
 # edit_option(conf_dest_path, 'input_exit_emulator_btn', '8')
 # L3 toggles fullscreen mode
