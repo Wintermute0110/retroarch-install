@@ -4,7 +4,8 @@
 <Configuration>
     <!-- Use a tag or branch name.
 	 'v' will be added automatically at the beginning of the tag name.
+	 In other words, for the tag "v1.9.6" write here "1.9.6"
          Examples: 1.8.7, 1.8.8, 1.8.9, master
     -->
-    <Version>1.9.0</Version>
+    <Version>1.9.6</Version>
 </Configuration>

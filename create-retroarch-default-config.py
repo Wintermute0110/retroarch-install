@@ -163,7 +163,8 @@ edit_option(conf_dest_path, 'audio_driver', 'sdl2')
 edit_option(conf_dest_path, 'input_max_users', '2')
 edit_option(conf_dest_path, 'input_autodetect_enable', 'true')
 edit_option(conf_dest_path, 'input_axis_threshold', '0.050000')
-edit_option(conf_dest_path, 'input_overlay_show_physical_inputs', 'true')
+# Not in 1.9.6
+# edit_option(conf_dest_path, 'input_overlay_show_physical_inputs', 'true')
 
 # Font of the widgets/on-screen messages. xmb_scale_factor seems to also affect this.
 edit_option(conf_dest_path, 'video_font_size', '30.000000')
