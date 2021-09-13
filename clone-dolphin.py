@@ -4,10 +4,7 @@
 # into the retroarch system dir to execute the dolphin core.
 # https://libretro.readthedocs.io/en/latest/library/dolphin/
 
-# --- Python standard library --------------------------------------------------------------------
 import os
-
-# --- Import custom modules ----------------------------------------------------------------------
 import common
 
 # --- main ---------------------------------------------------------------------------------------

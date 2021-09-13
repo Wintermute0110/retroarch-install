@@ -1,7 +1,3 @@
-#!/usr/bin/python3
-
-# Common Python code.
-
 # --- Python standard library --------------------------------------------------------------------
 import subprocess
 import sys
@@ -23,7 +19,7 @@ def read_config_file(filename):
     return configuration
 
 def run_command(arg_list):
-    # print(unicode(arg_list))
+    # print(str(arg_list))
     ret = subprocess.call(arg_list)
     if ret != 0:
         print('[ERROR] Got code {} executing command {}'.format(ret, arg_list[0]))

@@ -4,10 +4,7 @@
 # into the retroarch system dir to execute the ppsspp core.
 # https://docs.libretro.com/library/ppsspp/
 
-# --- Python standard library --------------------------------------------------------------------
 import os
-
-# --- Import custom modules ----------------------------------------------------------------------
 import common
 
 # --- main ---------------------------------------------------------------------------------------

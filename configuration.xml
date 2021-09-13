@@ -9,4 +9,12 @@
         Examples: 1.8.7, 1.8.8, 1.8.9, master
     -->
     <Version>1.9.8</Version>
+
+    <!--
+        No trailing / here in directory names.
+    -->
+    <RetroBinPath>/home/kodi/bin</RetroBinPath>
+    <LibRetroPath>/home/kodi/libretro</LibRetroPath>
+    <ConfigDir>/home/kodi/.config/retroarch</ConfigDir>
+    <RetroStuffPath>/home/kodi/.retroarch</RetroStuffPath>
 </Configuration>
