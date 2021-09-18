@@ -8,13 +8,13 @@
         In other words, for the git tag "v1.9.6" write here "1.9.6"
         Examples: 1.8.7, 1.8.8, 1.8.9, master
     -->
-    <Version>1.9.8</Version>
+    <Version>1.9.9</Version>
 
     <!--
         No trailing / here in directory names.
     -->
-    <RetroBinPath>/home/kodi/bin</RetroBinPath>
-    <LibRetroPath>/home/kodi/libretro</LibRetroPath>
+    <RetroBinDir>/home/kodi/bin</RetroBinDir>
+    <LibRetroDir>/home/kodi/libretro</LibRetroDir>
     <ConfigDir>/home/kodi/.config/retroarch</ConfigDir>
-    <RetroStuffPath>/home/kodi/.retroarch</RetroStuffPath>
+    <RetroStuffDir>/home/kodi/.retroarch</RetroStuffDir>
 </Configuration>

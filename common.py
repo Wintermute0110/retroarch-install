@@ -18,7 +18,7 @@ def read_config_file(filename):
 
     return configuration
 
-def run_command(arg_list):
+def run(arg_list):
     # print(str(arg_list))
     ret = subprocess.call(arg_list)
     if ret != 0:
