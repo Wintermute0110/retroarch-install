@@ -17,4 +17,5 @@
     <LibRetroDir>/home/kodi/libretro</LibRetroDir>
     <ConfigDir>/home/kodi/.config/retroarch</ConfigDir>
     <RetroStuffDir>/home/kodi/.retroarch</RetroStuffDir>
+    <ROMsDir>/home/kodi/AEL-ROMs</ROMsDir>
 </Configuration>
