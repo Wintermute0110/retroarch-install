@@ -10,4 +10,4 @@ import common
 
 # --- main ---------------------------------------------------------------------------------------
 lrsuper_repo_path = 'libretro-super'
-common.run_command(['git', '-C', lrsuper_repo_path, 'pull', 'origin'])
+common.run(['git', '-C', lrsuper_repo_path, 'pull', 'origin'])

@@ -9,4 +9,4 @@ import common
 
 # --- main ---------------------------------------------------------------------------------------
 # https://www.perforce.com/blog/vcs/git-beyond-basics-using-shallow-clones
-common.run_command(['git', 'clone', '--depth=1', 'https://github.com/hrydgard/ppsspp.git'])
+common.run(['git', 'clone', '--depth=1', 'https://github.com/hrydgard/ppsspp.git'])

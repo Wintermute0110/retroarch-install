@@ -9,4 +9,4 @@ import os
 import common
 
 # --- main ---------------------------------------------------------------------------------------
-common.run_command(['./libretro-super/retroarch/retroarch', '--features'])
+common.run(['./libretro-super/retroarch/retroarch', '--features'])

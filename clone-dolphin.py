@@ -8,4 +8,4 @@ import os
 import common
 
 # --- main ---------------------------------------------------------------------------------------
-common.run_command(['git', 'clone', '--depth=1', 'https://github.com/libretro/dolphin.git'])
+common.run(['git', 'clone', '--depth=1', 'https://github.com/libretro/dolphin.git'])

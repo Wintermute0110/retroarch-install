@@ -7,4 +7,4 @@ import common
 
 # --- main ---------------------------------------------------------------------------------------
 retroarch_source_dir = 'libretro-super/retroarch'
-common.run_command(['git', '-C', retroarch_source_dir, 'status'])
+common.run(['git', '-C', retroarch_source_dir, 'status'])
