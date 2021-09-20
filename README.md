@@ -167,11 +167,11 @@ $ ./create-retroarch-default-config.py
 
 `nano` is the editor I use but feel free to use any other one such as `vim` or `emacs`.
 
-To create a default configuration file required by `./create-retroarch-default-config.py`, first delete the current configuration file, then execute retroarch, and finally copy the default file with the retroarch version. For example, for Retroarch v1.9.9:
+To create a default configuration file required by `./create-retroarch-default-config.py`, first delete the current configuration file, then execute your new Retroarch (it will look ugly without a proper configuration file), and finally copy the default file with the retroarch version. For example, for Retroarch v1.9.9:
 ```
-$ rm /home/kodi/.config/retroarch/retroarch.ini
+$ rm /home/kodi/.config/retroarch/retroarch.cfg
 $ retroarch # (and press Esc key 2 times to quit)
-$ cp 
+$ cp /home/kodi/.config/retroarch/retroarch.cfg /home/kodi/retroarch-install/retroarch-1.9.9.cfg
 ```
 
 ### Optional stuff
