@@ -21,7 +21,7 @@ conf_source_path = './retroarch-' + conf['Version'] + '.cfg'
 conf_dest_path = '{}/retroarch.cfg'.format(conf['ConfigDir'])
 conf_dest_initial_path = '{}/retroarch.initial.cfg'.format(conf['ConfigDir'])
 # Retroarch replaces absolute user home dirs by '~'
-retroarch_stuff_dir = conf['RetroStuffDir']
+retrodata_dir = conf['RetroDataDir']
 libretro_dir = conf['LibRetroDir']
 # Directory where you have your ROMs.
 ROMs_dir = conf['ROMsDir']
@@ -65,13 +65,13 @@ def edit_option(filename, option_name, option_value):
 # conf_source_path = os.path.expanduser(conf_source_path)
 # conf_dest_path = os.path.expanduser(conf_dest_path)
 # conf_dest_initial_path = os.path.expanduser(conf_dest_initial_path)
-# retroarch_stuff_dir = os.path.expanduser(retroarch_stuff_dir)
+# retrodata_dir = os.path.expanduser(retrodata_dir)
 # ROMs_dir = os.path.expanduser(ROMs_dir)
 # libretro_dir = os.path.expanduser(libretro_dir)
 print('conf_source_path       "{}"'.format(conf_source_path))
 print('conf_dest_path         "{}"'.format(conf_dest_path))
 print('conf_dest_initial_path "{}"'.format(conf_dest_initial_path))
-print('retroarch_stuff_dir    "{}"'.format(retroarch_stuff_dir))
+print('retrodata_dir          "{}"'.format(retrodata_dir))
 print('libretro_dir           "{}"'.format(libretro_dir))
 print('ROMs_dir               "{}"'.format(ROMs_dir))
 
@@ -92,7 +92,6 @@ print(">>> Copying Retroarch default config file...")
 shutil.copyfile(conf_source_path, conf_dest_path)
 
 # --- Edit paths on the order they appear in RGUI 'Settings', 'Directory' ------------------------
-print(">>> Editing Retroarch configuration file...")
 # * Make sure these paths match the directory created in install-retroarch.
 # * To have a look at orphan directories in retroarch.cfg:
 #   $ cat retroarch.cfg | grep dir
@@ -100,53 +99,54 @@ print(">>> Editing Retroarch configuration file...")
 # * There is a bug in Retroarch, some directories end in _path (for files) instead of _directory.
 #   Also, recently some options end in _dir and not the traditional _directory.
 # * Options in retroarch.cfg are sorted alphabetically. Here also use alphabetical order.
-edit_option(conf_dest_path, 'assets_directory', os.path.join(retroarch_stuff_dir, 'assets/'))
-edit_option(conf_dest_path, 'audio_filter_dir', os.path.join(retroarch_stuff_dir, 'audio_filters/'))
-# edit_option(conf_dest_path, 'bundle_assets_dst_path', os.path.join(retroarch_stuff_dir, 'nodir/'))
-# edit_option(conf_dest_path, 'bundle_assets_dst_path_subdir', os.path.join(retroarch_stuff_dir, 'nodir/'))
-# edit_option(conf_dest_path, 'bundle_assets_src_path', os.path.join(retroarch_stuff_dir, 'nodir/'))
-edit_option(conf_dest_path, 'cache_directory', os.path.join(retroarch_stuff_dir, 'cache/'))
-edit_option(conf_dest_path, 'cheat_database_path', os.path.join(retroarch_stuff_dir, 'libretrodb/cht/'))
-edit_option(conf_dest_path, 'content_database_path', os.path.join(retroarch_stuff_dir, 'libretrodb/rdb/'))
-edit_option(conf_dest_path, 'content_favorites_path', os.path.join(retroarch_stuff_dir, 'content_favorites.lpl'))
-# edit_option(conf_dest_path, 'content_history_dir', os.path.join(retroarch_stuff_dir, 'nodir/'))
-edit_option(conf_dest_path, 'content_history_path', os.path.join(retroarch_stuff_dir, 'content_history.lpl'))
-edit_option(conf_dest_path, 'content_image_history_path', os.path.join(retroarch_stuff_dir, 'content_image_history.lpl'))
-edit_option(conf_dest_path, 'content_music_history_path', os.path.join(retroarch_stuff_dir, 'content_music_history.lpl'))
-edit_option(conf_dest_path, 'content_video_history_path', os.path.join(retroarch_stuff_dir, 'content_video_history.lpl'))
+print(">>> Editing Retroarch configuration file...")
+edit_option(conf_dest_path, 'assets_directory', os.path.join(retrodata_dir, 'assets/'))
+edit_option(conf_dest_path, 'audio_filter_dir', os.path.join(retrodata_dir, 'audio_filters/'))
+# edit_option(conf_dest_path, 'bundle_assets_dst_path', os.path.join(retrodata_dir, 'nodir/'))
+# edit_option(conf_dest_path, 'bundle_assets_dst_path_subdir', os.path.join(retrodata_dir, 'nodir/'))
+# edit_option(conf_dest_path, 'bundle_assets_src_path', os.path.join(retrodata_dir, 'nodir/'))
+edit_option(conf_dest_path, 'cache_directory', os.path.join(retrodata_dir, 'cache/'))
+edit_option(conf_dest_path, 'cheat_database_path', os.path.join(retrodata_dir, 'libretrodb/cht/'))
+edit_option(conf_dest_path, 'content_database_path', os.path.join(retrodata_dir, 'libretrodb/rdb/'))
+edit_option(conf_dest_path, 'content_favorites_path', os.path.join(retrodata_dir, 'content_favorites.lpl'))
+# edit_option(conf_dest_path, 'content_history_dir', os.path.join(retrodata_dir, 'nodir/'))
+edit_option(conf_dest_path, 'content_history_path', os.path.join(retrodata_dir, 'content_history.lpl'))
+edit_option(conf_dest_path, 'content_image_history_path', os.path.join(retrodata_dir, 'content_image_history.lpl'))
+edit_option(conf_dest_path, 'content_music_history_path', os.path.join(retrodata_dir, 'content_music_history.lpl'))
+edit_option(conf_dest_path, 'content_video_history_path', os.path.join(retrodata_dir, 'content_video_history.lpl'))
 # Named "Downloads" in RA GUI.
-edit_option(conf_dest_path, 'core_assets_directory', os.path.join(retroarch_stuff_dir, 'downloads/'))
-# edit_option(conf_dest_path, 'core_options_path', os.path.join(retroarch_stuff_dir, 'nodir/'))
-edit_option(conf_dest_path, 'cursor_directory', os.path.join(retroarch_stuff_dir, 'libretrodb/cursors/'))
+edit_option(conf_dest_path, 'core_assets_directory', os.path.join(retrodata_dir, 'downloads/'))
+# edit_option(conf_dest_path, 'core_options_path', os.path.join(retrodata_dir, 'nodir/'))
+edit_option(conf_dest_path, 'cursor_directory', os.path.join(retrodata_dir, 'libretrodb/cursors/'))
 # Named "Dynamic Backgrounds"
-edit_option(conf_dest_path, 'dynamic_wallpapers_directory', os.path.join(retroarch_stuff_dir, 'wallpapers/'))
-edit_option(conf_dest_path, 'input_remapping_directory', os.path.join(retroarch_stuff_dir, 'input_remappings/'))
+edit_option(conf_dest_path, 'dynamic_wallpapers_directory', os.path.join(retrodata_dir, 'wallpapers/'))
+edit_option(conf_dest_path, 'input_remapping_directory', os.path.join(retrodata_dir, 'input_remappings/'))
 # Named "Input Autoconfig"
-edit_option(conf_dest_path, 'joypad_autoconfig_dir', os.path.join(retroarch_stuff_dir, 'joypad_autoconfig/'))
-# Named Core. Apparently ':/' means '/home/user_name/bin/'
-edit_option(conf_dest_path, 'libretro_directory', ':/libretro/')
+edit_option(conf_dest_path, 'joypad_autoconfig_dir', os.path.join(retrodata_dir, 'joypad_autoconfig/'))
+# Named Core. Old value was ':/libretro/'. Apparently ':/' means '/home/user_name/bin/'
+edit_option(conf_dest_path, 'libretro_directory', libretro_dir)
 # Named "Core Info" in Retroarch GUI.
-edit_option(conf_dest_path, 'libretro_info_path', os.path.join(retroarch_stuff_dir, 'info/'))
-edit_option(conf_dest_path, 'log_dir', os.path.join(retroarch_stuff_dir, 'logs/'))
-edit_option(conf_dest_path, 'overlay_directory', os.path.join(retroarch_stuff_dir, 'overlays/'))
-edit_option(conf_dest_path, 'playlist_directory', os.path.join(retroarch_stuff_dir, 'playlists/'))
-edit_option(conf_dest_path, 'recording_config_directory', os.path.join(retroarch_stuff_dir, 'recording_config/'))
-edit_option(conf_dest_path, 'recording_output_directory', os.path.join(retroarch_stuff_dir, 'recording_output/'))
-edit_option(conf_dest_path, 'resampler_directory', os.path.join(retroarch_stuff_dir, 'nodir/'))
+edit_option(conf_dest_path, 'libretro_info_path', os.path.join(retrodata_dir, 'info/'))
+edit_option(conf_dest_path, 'log_dir', os.path.join(retrodata_dir, 'logs/'))
+edit_option(conf_dest_path, 'overlay_directory', os.path.join(retrodata_dir, 'overlays/'))
+edit_option(conf_dest_path, 'playlist_directory', os.path.join(retrodata_dir, 'playlists/'))
+edit_option(conf_dest_path, 'recording_config_directory', os.path.join(retrodata_dir, 'recording_config/'))
+edit_option(conf_dest_path, 'recording_output_directory', os.path.join(retrodata_dir, 'recording_output/'))
+edit_option(conf_dest_path, 'resampler_directory', os.path.join(retrodata_dir, 'nodir/'))
 # Named File Browser (default ROMs directory)
 edit_option(conf_dest_path, 'rgui_browser_directory', os.path.join(ROMs_dir))
 # Named Config
-edit_option(conf_dest_path, 'rgui_config_directory', os.path.join(retroarch_stuff_dir, 'configurations/'))
-edit_option(conf_dest_path, 'runtime_log_directory', os.path.join(retroarch_stuff_dir, 'runtime_log/'))
-edit_option(conf_dest_path, 'savefile_directory', os.path.join(retroarch_stuff_dir, 'savefiles/'))
-edit_option(conf_dest_path, 'savestate_directory', os.path.join(retroarch_stuff_dir, 'savestates/'))
-edit_option(conf_dest_path, 'screenshot_directory', os.path.join(retroarch_stuff_dir, 'screenshots/'))
+edit_option(conf_dest_path, 'rgui_config_directory', os.path.join(retrodata_dir, 'configurations/'))
+edit_option(conf_dest_path, 'runtime_log_directory', os.path.join(retrodata_dir, 'runtime_log/'))
+edit_option(conf_dest_path, 'savefile_directory', os.path.join(retrodata_dir, 'savefiles/'))
+edit_option(conf_dest_path, 'savestate_directory', os.path.join(retrodata_dir, 'savestates/'))
+edit_option(conf_dest_path, 'screenshot_directory', os.path.join(retrodata_dir, 'screenshots/'))
 # Named "System/BIOS" in RA GUI
-edit_option(conf_dest_path, 'system_directory', os.path.join(retroarch_stuff_dir, 'system/'))
-edit_option(conf_dest_path, 'thumbnails_directory', os.path.join(retroarch_stuff_dir, 'thumbnails/'))
-edit_option(conf_dest_path, 'video_filter_dir', os.path.join(retroarch_stuff_dir, 'video_filters/'))
-edit_option(conf_dest_path, 'video_font_path', os.path.join(retroarch_stuff_dir, ''))
-edit_option(conf_dest_path, 'video_shader_dir', os.path.join(retroarch_stuff_dir, 'shaders_cg/'))
+edit_option(conf_dest_path, 'system_directory', os.path.join(retrodata_dir, 'system/'))
+edit_option(conf_dest_path, 'thumbnails_directory', os.path.join(retrodata_dir, 'thumbnails/'))
+edit_option(conf_dest_path, 'video_filter_dir', os.path.join(retrodata_dir, 'video_filters/'))
+edit_option(conf_dest_path, 'video_font_path', os.path.join(retrodata_dir, ''))
+edit_option(conf_dest_path, 'video_shader_dir', os.path.join(retrodata_dir, 'shaders_cg/'))
 
 # --- Other options ------------------------------------------------------------------------------
 # For ideas have a look at https://github.com/libretro/Lakka/blob/lakka/packages/libretro/retroarch/package.mk
@@ -156,7 +156,7 @@ edit_option(conf_dest_path, 'menu_driver', 'ozone')
 # See https://www.libretro.com/index.php/changing-behavior-of-gl-and-glcore-video-drivers/
 # Use glcore if possible. Disable option "Shared hardware context"
 # Video driver, options: gl, glcore, gl1, vulkan, sdl2, xvideo, caca, null.
-edit_option(conf_dest_path, 'video_driver', 'gl')
+edit_option(conf_dest_path, 'video_driver', 'glcore')
 
 # Sound driver. Default is alsa, alsathread, tinyalsa, oss, openal, sdl2, pulse, null.
 edit_option(conf_dest_path, 'audio_driver', 'sdl2')
@@ -218,7 +218,7 @@ edit_option(conf_dest_path, 'menu_show_rewind', 'false')
 edit_option(conf_dest_path, 'quick_menu_show_start_recording', 'false')
 edit_option(conf_dest_path, 'quick_menu_show_start_streaming', 'false')
 
-# --- Misc options ---
+# --- Misc options
 edit_option(conf_dest_path, 'pause_nonactive', 'false')
 edit_option(conf_dest_path, 'check_firmware_before_loading', 'true')
 # Settings -> Video -> Threaded video (default false)
@@ -226,9 +226,9 @@ edit_option(conf_dest_path, 'check_firmware_before_loading', 'true')
 # Only use if full speed cannot be achieved otherwise.
 edit_option(conf_dest_path, 'video_threaded', 'false')
 # Settings -> Core -> Hardware shared context (default false)
-edit_option(conf_dest_path, 'video_shared_context', 'true')
+edit_option(conf_dest_path, 'video_shared_context', 'false')
 # Settings -> Core -> Allow cores to switch the video driver (default true)
-edit_option(conf_dest_path, 'driver_switch_enable', 'false')
+edit_option(conf_dest_path, 'driver_switch_enable', 'true')
 edit_option(conf_dest_path, 'fps_update_interval', '60')
 
 # --- Development options. Never user for release ------------------------------------------------

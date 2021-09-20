@@ -1,6 +1,4 @@
-<!--
-    Configuration for Retroarch compilation utilities.
--->
+<!-- Configuration for Retroarch compilation utilities. -->
 <Configuration>
     <!--
         Use a tag or branch name.
@@ -10,12 +8,10 @@
     -->
     <Version>1.9.9</Version>
 
-    <!--
-        No trailing / here in directory names.
-    -->
+    <!-- No trailing / here in directory names. -->
     <RetroBinDir>/home/kodi/bin</RetroBinDir>
     <LibRetroDir>/home/kodi/libretro</LibRetroDir>
     <ConfigDir>/home/kodi/.config/retroarch</ConfigDir>
-    <RetroStuffDir>/home/kodi/.retroarch</RetroStuffDir>
+    <RetroDataDir>/home/kodi/.retroarch</RetroDataDir>
     <ROMsDir>/home/kodi/AEL-ROMs</ROMsDir>
 </Configuration>
