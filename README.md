@@ -187,7 +187,7 @@ Execute this optionally before upgrading Retroarch.
 
  2. The option `sort_savefiles_enable` is activated. Your saved games will be stored in `~/.retroarch/savefiles/core_name/rom_name`.
 
- 3. In order to use vulkan in cores I think Retroarch `video_driver` options must be set to `vulkan`, otherwise cores will use OpenGL if `video_driver = "gl"`.
+ 3. In order to use vulkan in cores I think Retroarch `video_driver` options must be set to `vulkan`, otherwise cores will use OpenGL if `video_driver = "glcore"`.
 
  4. If Retroarch is configured to use vulkan video driver and a OpenGL-only core is loaded, for example `mupen64plus_next_libretro.so`, Retroarch crashes with a **Segmentation fault**.
 
@@ -247,7 +247,7 @@ First, create a file `/etc/X11/xorg.conf` for the X server to use the **intel** 
 
 ### Does Retroarch 1.7.7 works on Debian using RGUI and no xorg.conf?
 
-Interesting: in Debian, if file `xorg.conf` does not exist then Xorg uses the `modesetting` driver. The list of drivers in the system is in the directory `/usr/lib/xorg/modules/drivers/`.
+Interesting: in Debian, if file `xorg.conf` does not exist then Xorg uses the `modesetting` driver. The list of drivers installed in the system is in the directory `/usr/lib/xorg/modules/drivers/`.
 ```
 user $ cat /var/log/Xorg.0.log | grep modeset
 [  3222.762] (==) Matched modesetting as autoconfigured driver 0
