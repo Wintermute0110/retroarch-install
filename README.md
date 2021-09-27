@@ -158,7 +158,7 @@ A backup of the original configuration file is created in `~/.config/retroarch/r
 
 It is recommended that you recompile Retroarch when you upgrade your system. This is specially important if you update the Mesa/OpenGL libraries to avoid problems.
 
-Go to directory `~/Retroarch-Install/` and execute the following steps:
+Go to directory `~/retroarch-install/` and execute the following steps:
 
 ```
 $ ./update-libretro-super-using-git.py
@@ -211,36 +211,37 @@ Write me.
 
 ## Post installation notes
 
- 1. The **System directory** is located in `~/.retroarch/system/` Here you have to put BIOS files for the cores that require them.
+ 1. The **System directory** `$SYSDIR$` is located in `/home/kodi/.retroarch/system/` Here you have to put BIOS files for the cores that require them.
 
  2. The option `sort_savefiles_enable` is activated. Your saved games will be stored in `~/.retroarch/savefiles/core_name/rom_name`.
 
  3. In order to use vulkan in cores I think Retroarch `video_driver` options must be set to `vulkan`, otherwise cores will use OpenGL if `video_driver = "glcore"`.
 
- 4. If Retroarch is configured to use vulkan video driver and a OpenGL-only core is loaded, for example `mupen64plus_next_libretro.so`, Retroarch crashes with a **Segmentation fault**.
+ 4. If Retroarch is configured to use vulkan video driver and an OpenGL-only core is loaded, for example `mupen64plus_next_libretro.so`, Retroarch crashes with a **Segmentation fault**. What about the setting to allow cores to switch video driver?
 
- 5. A minimal `xorg.conf` with Section Device containing Identifier, Driver and VendorName is enough for Xorg to use the **intel** driver and not the **modesetting* driver. Keep in mind that Debian recommends to use the modeseting driver.
+ 5. If the file `/etc/X11/xorg.conf` does not exists (in Debian/Ubuntu) then Xorg uses the `modesetting` driver. In order to use the `intel` video driver a minimal `xorg.conf` is required. This minimal file requires a `Section "Device"` with tags `Identifier`, `Driver` and `VendorName`.
 
- 6. The **intel** driver seems to have better performance compared to the **modesetting** driver.
+ 6. The `intel` video driver seems to have better performance compared to the `modesetting` video driver.
 
 ## Internal notes
 
 ### Creating a new Retroarch default configuration file
 
-After a clean Retroarch installation, delete `~/.config/retroarch/retraoarch.cfg` and then execute `~/bin/retroarch`. This will create a default configuration file. Copy this file with a name like `~/Retroarch-Install/retroarch-<version>.cfg`, `<version>` matching the Retroarch version.
+After a clean Retroarch installation, delete `~/.config/retroarch/retraoarch.cfg` and then execute `~/bin/retroarch`. This will create a default configuration file. Copy this file with a name like `~/retroarch-install/retroarch-<version>.cfg`, `<version>` matching the Retroarch version.
 
 ### Getting system information for debugging
 
 ```
-user $ cat /var/log/Xorg.0.log | grep intel
+$ cat /var/log/Xorg.0.log | grep intel
+$ cat /var/log/Xorg.0.log | grep modeset
 ```
 
 ```
-user $ glxinfo | grep version
+$ glxinfo | grep version
 ```
 
 ```
-vulkaninfo | grep Version
+$ vulkaninfo | grep Version
 ```
 
 ## Debug notes
@@ -280,6 +281,8 @@ EndSection
 > open-source drivers on linux are kinda crappy, setting DRI to 2 in your xorg configuration
 > files is also generally a good fix for this kind of issue.
 
+References: [MODESETTING xorg driver manpage](https://manpages.debian.org/stretch/xserver-xorg-core/modesetting.4.en.html) / [intel xorg driver manpage](https://manpages.debian.org/bullseye/xserver-xorg-video-intel/intel.4.en.html)
+
 ### Testing Retroarch 1.7.7 with the intel driver in Ubuntu
 
 First, create a file `/etc/X11/xorg.conf` for the X server to use the **intel** driver and not the **modesetting** driver. In this test Kodi uses the default video settings. The reason to use the intel driver is that it seems to have better performance than the modesetting driver (at least when Retroarch is running in the foreground and Kodi in the background).
@@ -297,7 +300,7 @@ First, create a file `/etc/X11/xorg.conf` for the X server to use the **intel** 
 
 ### Does Retroarch 1.7.7 works on Debian using RGUI and no xorg.conf?
 
-Interesting: in Debian, if file `xorg.conf` does not exist then Xorg uses the `modesetting` driver. The list of drivers installed in the system is in the directory `/usr/lib/xorg/modules/drivers/`.
+Interesting: in Debian, if file `/etc/X11/xorg.conf` does not exist then Xorg uses the `modesetting` driver by default for an integrated `intel` videocard. The list of drivers installed in the system is in the directory `/usr/lib/xorg/modules/drivers/`.
 ```
 user $ cat /var/log/Xorg.0.log | grep modeset
 [  3222.762] (==) Matched modesetting as autoconfigured driver 0
@@ -316,4 +319,4 @@ user $ cat /var/log/Xorg.0.log | grep modeset
 [  3222.894] (II) modeset(0): [DRI2]   VDPAU driver: i965
 ```
 
-OK... now it seems to work well with no xorg.conf file, the modeset driver, and xbm menu, for both standard and OpenGL cores. I have no idea what configuration option I changed to make it work.
+OK... Now it seems to work well with no xorg.conf file, the modeset driver, and xbm menu, for both standard and OpenGL cores. I have no idea what configuration option I changed to make it work.
