@@ -12,6 +12,7 @@ of Retroarch. It has been tested in Debian and Ubuntu.
 * **[Updating Retroarch](#Updating-Retroarch)**
 * **[Core installation notes](#core-installation-notes)**
 * **[Post installation notes](#post-installation-notes)**
+* **[Internal notes](#internal-notes)**
 * **[Debug notes](#debug-notes)**
 
 ## Readme me first ##
@@ -27,13 +28,14 @@ In this tutorial it is assumed that the user running Retroarch is named `kodi` w
 | Retroarch data directory                | `/home/kodi/.retroarch/`        |
 | ROMS default directory                  | `/home/kodi/AEL-ROMs/`          |
 
-With these defaults you get:
+With these defaults you get the following directories. Note that in this guide `$SYSDIR$/pcsx2/` actually means `/home/kodi/.retroarch/system/pcsx2/`.
 
 | Name                         | Path                                                 |
 |------------------------------|------------------------------------------------------|
 | Retroarch executable         | `/home/kodi/bin/retroarch`                           |
 | Retroarch configuration file | `/home/kodi/.config/retroarch/retroarch.cfg`         |
 | Configuration file backup    | `/home/kodi/.config/retroarch/retroarch.initial.cfg` |
+| System directory `$SYSDIR$`  | `/home/kodi/.retroarch/system/`                      |
 
 Defaults can be changed in the file `configuration.xml`. Feel free to change the default user name `kodi`, but do not change the directories after the user name unless you know what you are doing. For example, `<ConfigDir>/home/myuser/.config/retroarch</ConfigDir>` is OK but `<ConfigDir>/home/kodi/.config/retroconfig</ConfigDir>` may cause trouble.
 ```
@@ -111,17 +113,17 @@ Then, as *root* user execute `./setup-build-dependencies.sh` This will install t
 Before compilation, go to the directory `~/retroarch-install/` and execute `./show-retroarch-tags.py`. Each tag corresponds to a released version of Retroarch and usually the latest released version is the last one. Use `PgUp` and `PgDn` keys to scroll up and down, respectively:
 ```
 ...
-v1.7.4
-v1.7.5
-v1.7.6
+v1.9.7
+v1.9.8
+v1.9.9
 ```
 
-Pick the version you want (usually the latest released version), edit the file `~/retroarch-install/configuration.xml` and change the context of the `<Version>` tag:
+Pick the version you want (usually the latest released version), edit the file `~/retroarch-install/configuration.xml` and change the context of the `<Version>` tag. Note that you don't need to include the leading `v` character and also you can use the special label `master` for the current development version.
 ```
     <Version>1.9.9</Version>
 ```
 
-To compile the Retroarch executable, go to the directory  `~/retroarch-install/` and execute `./compile-retroarch.sh`.
+To compile the Retroarch executable, go to the directory `~/retroarch-install/` and execute `./compile-retroarch.sh`.
 
 ## Additional repositories
 
