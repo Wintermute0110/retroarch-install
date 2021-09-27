@@ -10,30 +10,32 @@ of Retroarch. It has been tested in Debian and Ubuntu.
 * **[Additional repositories](#Additional-repositories)**
 * **[Retroarch installation and configuration](#Retroarch-installation-and-configuration)**
 * **[Updating Retroarch](#Updating-Retroarch)**
-* **[Post installation notes](#Post-installation-notes)**
+* **[Core installation notes](#core-installation-notes)**
+* **[Post installation notes](#post-installation-notes)**
+* **[Debug notes](#debug-notes)**
 
 ## Readme me first ##
 
-In this tutorial it is assumed that the user running Retroarch is named `kodi` with home directory `/home/kodi/`. The user name is only used to determine the paths. The character `~` means the user home directory, `/home/kodi/` by default. The following table summarizes the default paths.
+In this tutorial it is assumed that the user running Retroarch is named `kodi` with home directory `/home/kodi/`. Actually, the user name is only used to determine the paths. The character `~` means the user home directory, `/home/kodi/` by default. The following table summarizes the default paths.
 
-| Name                             | Path                            |
-|----------------------------------|---------------------------------|
-| These scripts directory          | `/home/kodi/retroarch-install/` |
-| Retroarch installation directory | `/home/kodi/bin/`               |
-| Libretro directory               | `/home/kodi/bin/libretro/`      |
-| Configuration directory          | `/home/kodi/.config/retroarch/` |
-| Retroarch data directory         | `/home/kodi/.retroarch/`        |
-| Default ROMs directory           | `/home/kodi/AEL-ROMs/`          |
+| Name                                    | Path                            |
+|-----------------------------------------|---------------------------------|
+| This repository installation directory  | `/home/kodi/retroarch-install/` |
+| Retroarch binary installation directory | `/home/kodi/bin/`               |
+| Libretro cores directory                | `/home/kodi/libretro/`          |
+| Configuration file directory            | `/home/kodi/.config/retroarch/` |
+| Retroarch data directory                | `/home/kodi/.retroarch/`        |
+| ROMS default directory                  | `/home/kodi/AEL-ROMs/`          |
 
 With these defaults you get:
 
-| Name                         | Path                                          |
-|------------------------------|-----------------------------------------------|
-| Retroarch executable         | `/home/kodi/bin/retroarch`                    |
-| Retroarch configuration file | `/home/kodi/.config/retroarch/retroarch.cfg`  |
-| Configuration file backup    | `/home/kodi/.config/retroarch/retroarch.cxxzxzxfg` |
+| Name                         | Path                                                 |
+|------------------------------|------------------------------------------------------|
+| Retroarch executable         | `/home/kodi/bin/retroarch`                           |
+| Retroarch configuration file | `/home/kodi/.config/retroarch/retroarch.cfg`         |
+| Configuration file backup    | `/home/kodi/.config/retroarch/retroarch.initial.cfg` |
 
-Defaults can be changed in the file `configuration.xml`. Feel free to change the default user name `kodi`, but do not change the final directories. For example, `<ConfigDir>/home/myuser/.config/retroarch</ConfigDir>`.
+Defaults can be changed in the file `configuration.xml`. Feel free to change the default user name `kodi`, but do not change the directories after the user name unless you know what you are doing. For example, `<ConfigDir>/home/myuser/.config/retroarch</ConfigDir>` is OK but `<ConfigDir>/home/kodi/.config/retroconfig</ConfigDir>` may cause trouble.
 ```
 <!-- Configuration for Retroarch compilation utilities. -->
 <Configuration>
@@ -181,6 +183,30 @@ Execute this optionally before upgrading Retroarch.
 ./update-ppsspp.py
 ```
 
+## Core installation notes
+
+Random notes to install or fine tune for some notable cores.
+
+### PCSX2 - Placing the PS2 BIOS
+
+The BIOS files must be placed in directory xxxxx.
+
+PS2 BIOS files have 4 megabytes. There could be additional/auxiliary files.
+
+PCSX2 scans all files in the xxxx at starting time, looks for valid BIOS files and places them in a list.
+
+### PPSSPP - Core assets
+
+Write me.
+
+### Dolphin - Executing the GameCube BIOS 
+
+Write me.
+
+### Dolphin - Dolphin core assets
+
+Write me.
+
 ## Post installation notes
 
  1. The **System directory** is located in `~/.retroarch/system/` Here you have to put BIOS files for the cores that require them.
@@ -195,7 +221,29 @@ Execute this optionally before upgrading Retroarch.
 
  6. The **intel** driver seems to have better performance compared to the **modesetting** driver.
 
-### Problems in Linux Debian/Ubuntu and Intel graphic cards
+## Internal notes
+
+### Creating a new Retroarch default configuration file
+
+After a clean Retroarch installation, delete `~/.config/retroarch/retraoarch.cfg` and then execute `~/bin/retroarch`. This will create a default configuration file. Copy this file with a name like `~/Retroarch-Install/retroarch-<version>.cfg`, `<version>` matching the Retroarch version.
+
+### Getting system information for debugging
+
+```
+user $ cat /var/log/Xorg.0.log | grep intel
+```
+
+```
+user $ glxinfo | grep version
+```
+
+```
+vulkaninfo | grep Version
+```
+
+## Debug notes
+
+### Issues in Linux Debian/Ubuntu and Intel graphic cards
 
 XMB menu driver causes Retroarch to freeze. This freezing is rather random, sometimes happens, sometimes not. One solution is to use the rgui menu driver. Other users propose to set DRI option to **2**. Users report a loss of performance when using DRI **2**.
 
@@ -267,31 +315,3 @@ user $ cat /var/log/Xorg.0.log | grep modeset
 ```
 
 OK... now it seems to work well with no xorg.conf file, the modeset driver, and xbm menu, for both standard and OpenGL cores. I have no idea what configuration option I changed to make it work.
-
-## Internal notes
-
-### Creating a new Retroarch default configuration file
-
-After a clean Retroarch installation, delete `~/.config/retroarch/retraoarch.cfg` and then execute `~/bin/retroarch`. This will create a default configuration file. Copy this file with a name like `~/Retroarch-Install/retroarch-<version>.cfg`, `<version>` matching the Retroarch version.
-
-### PPSSPP core assets
-
-Write me.
-
-### Dolphin core assets
-
-Write me.
-
-### Getting system information for debugging
-
-```
-user $ cat /var/log/Xorg.0.log | grep intel
-```
-
-```
-user $ glxinfo | grep version
-```
-
-```
-vulkaninfo | grep Version
-```
