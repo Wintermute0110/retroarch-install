@@ -4,9 +4,9 @@
         Use a tag or branch name.
         'v' will be added automatically at the beginning of the tag name.
         In other words, for the git tag "v1.9.6" write here "1.9.6"
-        Examples: 1.8.7, 1.8.8, 1.8.9, master
+        Examples: 1.9.0, master
     -->
-    <Version>1.9.9</Version>
+    <Version>1.9.10</Version>
 
     <!-- No trailing / here in directory names. -->
     <RetroBinDir>/home/kodi/bin</RetroBinDir>
