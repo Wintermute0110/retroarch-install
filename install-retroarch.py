@@ -16,10 +16,10 @@ RetroBinDir = conf['RetroBinDir']
 LibRetroDir = conf['LibRetroDir']
 ConfigDir = conf['ConfigDir']
 RetroDataDir = conf['RetroDataDir']
-print('*** RetroBinDir  "{}"'.format(RetroBinDir))
-print('*** LibRetroDir  "{}"'.format(LibRetroDir))
-print('*** ConfigDir    "{}"'.format(ConfigDir))
-print('*** RetroDataDir "{}"'.format(RetroDataDir))
+print('RetroBinDir  "{}"'.format(RetroBinDir))
+print('LibRetroDir  "{}"'.format(LibRetroDir))
+print('ConfigDir    "{}"'.format(ConfigDir))
+print('RetroDataDir "{}"'.format(RetroDataDir))
 
 # --- Create main directories
 print("Creating RetroArch binary directory...")

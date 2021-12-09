@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 
 # Read the configuration XML file an return a dictionary with options.
 def read_config_file(filename):
-    __debug_xml_parser = True
+    __debug_xml_parser = False
     print('Reading XML configuration file "{}"'.format(filename))
     configuration = {}
     xml_tree = ET.parse(filename)
@@ -14,7 +14,7 @@ def read_config_file(filename):
         xml_tag  = category_element.tag
         xml_text = category_element.text if category_element.text is not None else ''
         configuration[xml_tag] = xml_text
-        if __debug_xml_parser: print('"{}" : "{}"'.format(xml_tag, xml_text))
+        if __debug_xml_parser: print('"{}" -> "{}"'.format(xml_tag, xml_text))
 
     return configuration
 
