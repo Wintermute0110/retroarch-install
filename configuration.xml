@@ -6,7 +6,7 @@
         In other words, for the git tag "v1.9.6" write here "1.9.6"
         Examples: 1.9.0, master
     -->
-    <Version>1.9.14</Version>
+    <Version>1.10.0</Version>
 
     <!-- No trailing / here in directory names. -->
     <RetroBinDir>/home/kodi/bin</RetroBinDir>
